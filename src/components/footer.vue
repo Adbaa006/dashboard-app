@@ -1,5 +1,5 @@
 <template>
-  <footer class="p-4 footer bg-neutral text-neutral-content">
-    © Copyright Adele Bang-Johansen - {{ new Date(Date.now()).getFullYear() }}
+  <footer class="footer">
+    <h4>Designet og kodet av Adele Bang-Johansen</h4>
   </footer>
 </template>
