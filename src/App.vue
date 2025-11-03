@@ -22,20 +22,20 @@ const currentView = computed(() =>{
 </script>
 
 <template>
-  <header><h1>Dashboard</h1></header>
+  <nav><h1>Dasboard</h1></nav>
   <menu>
     <a href="#/">Home</a>
     <a href="#/support">Support</a>
     <a href="#/profil">Profil</a>
   </menu>
-  <main>
-    <h1>Velkommen bruker</h1>
-  </main>
   <component :is="currentView" />
 </template>
 
 <style scoped>
-header {
+nav {
   
+}
+header {
+
 }
 </style>
