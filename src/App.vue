@@ -25,9 +25,12 @@ const currentView = computed(() =>{
 </script>
 
 <template>
-  <Navbar />
-  <Menu />
-  <component :is="currentView" />
-  <Footer />
+  <container class="grid-container">
+    <nav class="nav"><Navbar /></nav>
+    <aside class="menu"><Menu /></aside>
+    <main class="main">
+      <component :is="currentView" />
+    </main>
+    <footer class="footer"><Footer /></footer>
+  </container>
 </template>
-

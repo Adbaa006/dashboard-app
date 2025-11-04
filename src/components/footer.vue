@@ -1,5 +1,5 @@
 <template>
   <footer class="footer">
-    <h4>Designet og kodet av Adele Bang-Johansen</h4>
+    <h5>Designet og kodet av Adele Bang-Johansen</h5>
   </footer>
 </template>

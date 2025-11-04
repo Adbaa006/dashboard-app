@@ -1,3 +1,5 @@
 <template>
-  <nav class="nav"><h1>Dashboard</h1></nav>
+  <nav class="nav">
+    <h2>Dashboard</h2>
+  </nav>
 </template>
