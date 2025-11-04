@@ -42,7 +42,31 @@
       </div>
     </div>
     <div class="innhold">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque doloremque impedit recusandae. At laboriosam neque nostrum, illum cupiditate eos odio corporis eum doloribus facere commodi cumque minus consequatur adipisci cum!
+      <div class="feilmeldinger">
+        <div class="f1">
+          <h3>Feilemelding</h3>
+          <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia corrupti velit non rem, illo exercitationem vero dolor et aspernatur laboriosam aut magni dicta porro quisquam eligendi, quod, suscipit est illum.</h5>
+        </div>
+        <div class="f2">
+          <h3>Feilemelding</h3>
+          <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia corrupti velit non rem, illo exercitationem vero dolor et aspernatur laboriosam aut magni dicta porro quisquam eligendi, quod, suscipit est illum.</h5>
+        </div>
+        <div class="f3">
+          <h3>Feilemelding</h3>
+          <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia corrupti velit non rem, illo exercitationem vero dolor et aspernatur laboriosam aut magni dicta porro quisquam eligendi, quod, suscipit est illum.</h5>
+        </div>
+        <div class="f4">
+          <h3>Feilemelding</h3>
+          <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia corrupti velit non rem, illo exercitationem vero dolor et aspernatur laboriosam aut magni dicta porro quisquam eligendi, quod, suscipit est illum.</h5>
+        </div>
+        <div class="f5">
+          <h3>Feilemelding</h3>
+          <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia corrupti velit non rem, illo exercitationem vero dolor et aspernatur laboriosam aut magni dicta porro quisquam eligendi, quod, suscipit est illum.</h5>
+        </div>
+      </div>
+      <div class="blank">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit corporis, eveniet illum quibusdam voluptas doloremque alias dolores ea autem architecto minima atque natus quasi laborum numquam obcaecati vitae beatae ut?</p>
+      </div>
     </div>
   </main>
 </template>

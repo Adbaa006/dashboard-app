@@ -104,6 +104,20 @@ a:hover {
   justify-content: center;
 }
 .innhold {
-  padding-top: 5rem;
-  padding-bottom: 20rem;
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+}
+.f1,
+.f2,
+.f3,
+.f4,
+.f5 {
+  width: 40rem;
+  background-color: white;
+  padding: 2rem;
+  margin: 1rem;
+}
+.blank {
+  margin: 2rem;
 }
