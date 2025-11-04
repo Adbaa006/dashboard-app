@@ -4,11 +4,17 @@
   line-height: 30px;
   box-sizing: border-box;
 }
+img,
+svg {
+  max-width: 100%;
+  vertical-align: middle;
+  height: auto;
+}
 .grid-container {
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 15rem 1fr;
+  grid-template-columns: 20rem 1fr;
   grid-template-rows:  auto 1fr auto;
   grid-template-areas:
   'nav nav'
@@ -26,6 +32,7 @@
 .menu { 
   grid-area: menu;
   display: flex;
+  height: fit-content;
   padding: 2rem;
   flex-direction: column;
   background-color: green;
@@ -48,7 +55,26 @@
 a {
   text-decoration: none;
   color: black;
+  padding-left: 2rem;
 }
 a:hover {
   text-decoration: underline;
+}
+.menyikoner {
+  display: grid;
+  grid-template-rows: 3rem 3rem 3rem;
+  grid-template-columns: 3rem ;
+  grid-template-areas: 
+  'hjem'
+  'stotte'
+  'logget_inn';
+  gap: 2rem;
+  padding-top: 2rem;
+}
+.hjem,
+.stotte,
+.logget_inn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
