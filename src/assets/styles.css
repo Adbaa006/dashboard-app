@@ -19,6 +19,7 @@ svg {
   'nav nav'
   'menu main'
   'menu footer';
+  height: 100vh;
 }
 .nav { 
   grid-area: nav;
@@ -40,6 +41,8 @@ svg {
   flex-direction: column;
   padding: 1rem;
   background-color: #DFE9F2;
+  flex: 1;
+  overflow-y: auto;
 }
 .footer { 
   grid-area: footer;
@@ -120,4 +123,24 @@ a:hover {
 }
 .blank {
   margin: 2rem;
+}
+.navn-og-bilde {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2rem;
+}
+.navn-og-tittel {
+  padding-left: 3rem;
+}
+.info-og-oppgaver {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20rem;
+}
+.info {
+  padding: 3rem;
+}
+.oppgaver {
+  padding: 3rem;
 }
