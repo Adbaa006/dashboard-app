@@ -21,3 +21,9 @@
       </nav>
     </aside>
 </template>
+
+<style scoped>
+img {
+  max-width: 3rem;
+}
+</style>
