@@ -1,5 +1,5 @@
 <template>
   <nav class="nav">
-    <h2>Dashboard</h2>
+    <h2>Tech Support Dashboard</h2>
   </nav>
 </template>

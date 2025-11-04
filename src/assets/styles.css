@@ -18,30 +18,28 @@ svg {
   grid-template-areas:
   'nav nav'
   'menu main'
-  'footer footer';
-  gap: 1rem;
-
+  'menu footer';
 }
 .nav { 
   grid-area: nav;
   display: flex;
   padding: 0.5rem;
-  background-color: purple;
+  background-color: #DFE9F2;
 }
 .menu { 
   grid-area: menu;
   display: flex;
-  height: fit-content;
+  height: auto;
   padding: 2rem;
   flex-direction: column;
-  background-color: green;
+  background-color: #175073;
 }
 .main { 
   grid-area: main;
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  background-color: grey;
+  background-color: #DFE9F2;
 }
 .footer { 
   grid-area: footer;
@@ -49,7 +47,7 @@ svg {
   justify-content: center;
   text-align: center;
   padding: 0.5rem;
-  background-color: blue;
+  background-color: #DFE9F2;
 }
 a {
   text-decoration: none;
@@ -82,17 +80,17 @@ a:hover {
   margin: 0 auto;
   display: grid;
   grid-template-rows: 10rem;
-  grid-template-columns: 10rem 10rem 10rem 10rem;
+  grid-template-columns: 13rem 13rem 13rem 13rem;
   grid-template-areas: 
   'stats1 stats2 stats3 stats4';
-  gap: 5.3rem;
+  gap: 2rem;
 }
 .stats1,
 .stats2,
 .stats3,
 .stats4 {
   padding: 1rem;
-  background-color: pink;
+  background-color: #175073;
 }
 .headline {
   display: flex;
@@ -104,4 +102,8 @@ a:hover {
   display: flex;
   padding-top: 1rem;
   justify-content: center;
+}
+.innhold {
+  padding-top: 5rem;
+  padding-bottom: 20rem;
 }
