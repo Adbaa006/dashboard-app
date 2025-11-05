@@ -51,19 +51,36 @@ const filteredTickets = computed(() => {
     </div>
 
     <table>
-      <tr v-for="ticket in filteredTickets" :key="ticket.id">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Priority</th>
+          <th>Customer</th>
+          <th>Subject</th>
+          <th>Status</th>
+          <th>Assignee</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="ticket in filteredTickets" :key="ticket.id">
         <td>{{ ticket.id }}</td>
-        <td>{{ ticket.customer }}</td>
-        <td>{{ ticket.subject }}</td>
-        <td>{{ ticket.status }}</td>
         <td>
           <span :class="['badge', priorityClass(ticket.priority)]">
             {{ ticket.priority }}
           </span>
         </td>
+        <td>{{ ticket.customer }}</td>
+        <td>{{ ticket.subject }}</td>
+        <td>
+          <span :class="['badge', statusClass(ticket.status)]">
+            {{ ticket.status }}
+          </span>
+        </td>
         <td>{{ ticket.assignee }}</td>
         <td>{{ formatDate(ticket.timestamp) }}</td>
       </tr>
+      </tbody>
     </table>
   </div>
 </template>
@@ -110,9 +127,9 @@ tr:hover {
   color: whitesmoke;
 }
 
-.status-open { background: #ef4444; }       
+.status-open { background: #b91c1c; }       
 .status-progress { background: #f59e0b; }   
-.status-resolved { background: #10b981; }   
+.status-resolved { background: #22c55e; }   
 .status-closed { background: #6b7280; }     
 
 .priority-high { background: #b91c1c; }

@@ -9,7 +9,7 @@ console.log(supportTickets)
     <main class="main">
         <div class="navn-og-bilde">
             <div class="profilbilde">
-                {{ userProfile.avatar }}
+                <img :src=" userProfile.avatar " alt="">
             </div>
             <div class="navn-og-tittel">
                 <h2>{{ userProfile.firstName }} {{ userProfile.lastName }}</h2>
@@ -36,6 +36,9 @@ console.log(supportTickets)
             </div>
             <div class="oppgaver">
                 <h3>Roles</h3>
+                <div v-for="value in userProfile.roles">
+                    {{ value.name }}
+                </div>
             </div>
         </div>
     </main>

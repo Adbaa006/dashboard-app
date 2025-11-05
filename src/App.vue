@@ -6,11 +6,13 @@ import Profil from './pages/Profil.vue'
 import Navbar from './components/Navbar.vue'
 import Menu from './components/Menu.vue'
 import Footer from './components/Footer.vue'
+import TicketDetails from './pages/TicketDetails.vue'
 
 const routes = {
   '/': Home,
   '/support': Support,
-  '/profil': Profil
+  '/profil': Profil,
+  '/support/:id': TicketDetails
 }
 
 const currentPath = ref(window.location.hash)

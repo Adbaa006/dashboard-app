@@ -37,23 +37,23 @@ const priorityClass = (priority) => {
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Kunde</th>
+                    <th>Priority</th>
+                    <th>Customer</th>
                     <th>Subject</th>
                     <th>Status</th>
-                    <th>Prioritet</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="ticket in tickets" :key="ticket.id">
                     <td>{{ ticket.id }}</td>
-                    <td>{{ ticket.customer }}</td>
-                    <td>{{ ticket.subject }}</td>
-                    <td>{{ ticket.status }}</td>
                     <td>
                         <span :class="['badge', priorityClass(ticket.priority)]">
                             {{ ticket.priority }}
                         </span>
                     </td>
+                    <td>{{ ticket.customer }}</td>
+                    <td>{{ ticket.subject }}</td>
+                    <td>{{ ticket.status }}</td>
                 </tr>
             </tbody>
         </table>
