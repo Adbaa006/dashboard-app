@@ -1,7 +1,15 @@
+<script setup>
+import { userProfile, supportTickets } from '@/data/supportData';
+
+console.log(userProfile)
+console.log(supportTickets)
+</script>
+
 <template>
   <main class="main">
     <header>
-      <h1>Velkommen Ola</h1>
+      <h1>Velkommen, {{ userProfile.firstName }}</h1>
+      <p>Rolle: {{ userProfile.role }}</p>
     </header>
     <div class="stats">
       <div class="stats1">
@@ -43,26 +51,13 @@
     </div>
     <div class="innhold">
       <div class="feilmeldinger">
-        <div class="f1">
-          <h3>Feilemelding</h3>
-          <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia corrupti velit non rem, illo exercitationem vero dolor et aspernatur laboriosam aut magni dicta porro quisquam eligendi, quod, suscipit est illum.</h5>
-        </div>
-        <div class="f2">
-          <h3>Feilemelding</h3>
-          <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia corrupti velit non rem, illo exercitationem vero dolor et aspernatur laboriosam aut magni dicta porro quisquam eligendi, quod, suscipit est illum.</h5>
-        </div>
-        <div class="f3">
-          <h3>Feilemelding</h3>
-          <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia corrupti velit non rem, illo exercitationem vero dolor et aspernatur laboriosam aut magni dicta porro quisquam eligendi, quod, suscipit est illum.</h5>
-        </div>
-        <div class="f4">
-          <h3>Feilemelding</h3>
-          <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia corrupti velit non rem, illo exercitationem vero dolor et aspernatur laboriosam aut magni dicta porro quisquam eligendi, quod, suscipit est illum.</h5>
-        </div>
-        <div class="f5">
-          <h3>Feilemelding</h3>
-          <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia corrupti velit non rem, illo exercitationem vero dolor et aspernatur laboriosam aut magni dicta porro quisquam eligendi, quod, suscipit est illum.</h5>
-        </div>
+        <h3>Åpne feilmeldinger:</h3>
+        <ul>
+          <li v-for="ticket in supportTickets.filter(t => t.status === 'Open')" :key="ticket.id">
+            <strong>{{ ticket.customer }}</strong> - {{ ticket.subject }} ({{ ticket.priority }})
+
+          </li>
+        </ul>
       </div>
       <div class="blank">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit corporis, eveniet illum quibusdam voluptas doloremque alias dolores ea autem architecto minima atque natus quasi laborum numquam obcaecati vitae beatae ut?</p>

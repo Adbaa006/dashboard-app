@@ -41,8 +41,6 @@ svg {
   flex-direction: column;
   padding: 1rem;
   background-color: #DFE9F2;
-  flex: 1;
-  overflow-y: auto;
 }
 .footer { 
   grid-area: footer;
@@ -51,6 +49,7 @@ svg {
   text-align: center;
   padding: 0.5rem;
   background-color: #DFE9F2;
+  border-top: 1px solid #DFE9F2;
 }
 a {
   text-decoration: none;

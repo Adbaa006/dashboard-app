@@ -1,9 +1,16 @@
+<script setup>
+import { userProfile, supportTickets } from '@/data/supportData';
+
+console.log(userProfile)
+console.log(supportTickets)
+</script>
+
 <template>
     <aside class="menu">
       <div class="bruker">
         <img src="/Users/adbaa007/project/dashboard-app/src/images/profil2.svg" alt="">
-        <h3>Ola Nordmann</h3>
-        <p>ola.nordmann@selskap.no</p>
+        <h3>{{ userProfile.firstName }} {{ userProfile.lastName }}</h3>
+        <p>{{ userProfile.email }}</p>
       </div>
       <nav class=" menyikoner">
         <div class="hjem">

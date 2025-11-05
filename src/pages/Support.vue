@@ -1,3 +1,10 @@
+<script setup>
+import { userProfile, supportTickets } from '@/data/supportData';
+
+console.log(userProfile)
+console.log(supportTickets)
+</script>
+
 <template>
     <main class="main">
         <header>
