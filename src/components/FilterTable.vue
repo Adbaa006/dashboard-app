@@ -30,12 +30,6 @@ const priorityClass = (priority) => {
 
 const filter = ref('All') // Start med å vise åpne saker
 
-const findOneTicket = filteredTickets.find(ticket => ticket.id === 1)
-function findATicket (ticketID) {
-  const ticket = filteredTickets.find(ticket => ticket.id === ticketID)
-  return ticket
-}
-
 const filteredTickets = computed(() => {
   if (filter.value === 'All') return supportTickets
   return supportTickets.filter(t => t.status === filter.value)
