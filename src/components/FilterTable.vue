@@ -1,5 +1,6 @@
 <script setup>
-import { supportTickets } from '../data/supportData.js'
+import { ref, computed } from 'vue'
+import { supportTickets } from '@/data/supportData'
 
 const formatDate = (timestamp) => {
   return new Date(timestamp).toLocaleString('en-US', {
@@ -26,40 +27,45 @@ const priorityClass = (priority) => {
     default: return ''
   }
 }
+
+const filter = ref('All') // Start med å vise åpne saker
+
+const filteredTickets = computed(() => {
+  if (filter.value === 'All') return supportTickets
+  return supportTickets.filter(t => t.status === filter.value)
+})
 </script>
 
 <template>
-    <div class="tickets-table">
-        <h2 class="table-title">Support tickets</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Kunde</th>
-                    <th>Subject</th>
-                    <th>Status</th>
-                    <th>Prioritet</th>
-                    <th>Ansvarlig</th>
-                    <th>Tidspunkt</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="ticket in tickets" :key="ticket.id">
-                    <td>{{ ticket.id }}</td>
-                    <td>{{ ticket.customer }}</td>
-                    <td>{{ ticket.subject }}</td>
-                    <td>{{ ticket.status }}</td>
-                    <td>
-                        <span :class="['badge', priorityClass(ticket.priority)]">
-                            {{ ticket.priority }}
-                        </span>
-                    </td>
-                    <td>{{ ticket.assignee }}</td>
-                    <td>{{ formatDate(ticket.timestamp) }}</td>
-                </tr>
-            </tbody>
-        </table>
+  <div>
+    <div class="filter-bar">
+      <h2 class="table-title">Support tickets</h2>
+      <label>Filter: </label>
+      <select v-model="filter">
+        <option value="All">All</option>
+        <option value="Open">Open</option>
+        <option value="In Progress">In progress</option>
+        <option value="Resolved">Resolved</option>
+        <option value="Closed">Closed</option>
+      </select>
     </div>
+
+    <table>
+      <tr v-for="ticket in filteredTickets" :key="ticket.id">
+        <td>{{ ticket.id }}</td>
+        <td>{{ ticket.customer }}</td>
+        <td>{{ ticket.subject }}</td>
+        <td>{{ ticket.status }}</td>
+        <td>
+          <span :class="['badge', priorityClass(ticket.priority)]">
+            {{ ticket.priority }}
+          </span>
+        </td>
+        <td>{{ ticket.assignee }}</td>
+        <td>{{ formatDate(ticket.timestamp) }}</td>
+      </tr>
+    </table>
+  </div>
 </template>
 
 <style scoped>
