@@ -1,36 +1,29 @@
+<template>
+  <div class="layout">
+    <Sidebar />
+    <div class="content">
+      <Navbar />
+      <router-view />
+    </div>
+  </div>
+</template>
+
 <script setup>
-import { ref, computed } from 'vue'
-import Home from './pages/Home.vue'
-import Support from './pages/Support.vue'
-import Profil from './pages/Profil.vue'
+import Sidebar from './components/Sidebar.vue'
 import Navbar from './components/Navbar.vue'
-import Menu from './components/Menu.vue'
-import Footer from './components/Footer.vue'
-
-const routes = {
-  '/': Home,
-  '/support': Support,
-  '/profil': Profil
-}
-
-const currentPath = ref(window.location.hash)
-
-window.addEventListener('hashchange', () => {
-  currentPath.value = window.location.hash
-})
-
-const currentView = computed(() =>{
-  return routes[currentPath.value.slice(1) || '/']
-})
 </script>
 
-<template>
-  <container class="grid-container">
-    <nav class="nav"><Navbar /></nav>
-    <aside class="menu"><Menu /></aside>
-    <main class="main">
-      <component :is="currentView" />
-    </main>
-    <footer class="footer"><Footer /></footer>
-  </container>
-</template>
+<style scoped>
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  background: #f4f6fa;
+  overflow-y: auto;
+}
+</style>

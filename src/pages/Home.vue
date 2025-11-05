@@ -1,55 +1,57 @@
 <template>
-  <main class="main">
-    <header>
-      <h1>Velkommen Ola</h1>
-    </header>
+  <div class="dashboard">
     <div class="stats">
-      <div class="stats1">
-        <div class="headline">
-          <h4>Earning</h4>
-          <img src="/Users/adbaa007/project/dashboard-app/src/images/9758195051554125672-128.png" alt="">
-        </div>
-        <div class="number">
-          <h2>$739</h2>
-        </div>
-      </div>
-      <div class="stats2">
-        <div class="headline">
-          <h4>Share</h4>
-          <img src="/Users/adbaa007/project/dashboard-app/src/images/13382477261553239395-128.png" alt="">
-        </div>
-        <div class="number">
-          <h2>2693</h2>
-        </div>
-      </div>
-      <div class="stats3">
-        <div class="headline">
-          <h4>Likes</h4>
-          <img src="/Users/adbaa007/project/dashboard-app/src/images/280948461578982966-128.png" alt="">
-        </div>
-        <div class="number">
-          <h2>173</h2>
-        </div>
-      </div>
-      <div class="stats4">
-        <div class="headline">
-          <h4>Rating</h4>
-          <img src="/Users/adbaa007/project/dashboard-app/src/images/316264091586787876-128.png" alt="">
-        </div>
-        <div class="number">
-          <h2>8.5</h2>
-        </div>
-      </div>
+      <StatCard title="Earning" value="$628" />
+      <StatCard title="Share" value="2434" />
+      <StatCard title="Likes" value="1259" />
+      <StatCard title="Rating" value="8.5" />
     </div>
-  </main>
+
+    <div class="charts">
+      <ChartBar />
+      <ChartLine />
+    </div>
+  </div>
+  <div>
+    <h2>Welcome, {{ userProfile.firstName }}</h2>
+    <p>Role: {{ userProfile.role }}</p>
+
+    <h3>Open Tickets:</h3>
+    <ul>
+      <li v-for="ticket in supportTickets.filter(t => t.status === 'Open')" :key="ticket.id">
+        <strong>{{ ticket.customer }}</strong> — {{ ticket.subject }} ({{ ticket.priority }})
+      </li>
+    </ul>
+  </div>
 </template>
 
+<script setup>
+import StatCard from '../components/StatCard.vue'
+import ChartBar from '../components/ChartBar.vue'
+import ChartLine from '../components/ChartLine.vue'
+import { userProfile, supportTickets } from '../data/mockData.js'
+
+console.log(userProfile)
+console.log(supportTickets)
+</script>
+
 <style scoped>
-img {
-  max-width: 2rem;
+.dashboard {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1.5rem;
 }
-h2 {
-  font-size: 50px;
-  font-weight: 100;
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
 }
 </style>
