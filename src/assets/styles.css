@@ -42,6 +42,9 @@ svg {
   padding: 1rem;
   background-color: #DFE9F2;
 }
+header {
+  padding-left: 2rem;
+}
 .footer { 
   grid-area: footer;
   display: flex;
@@ -105,23 +108,8 @@ a:hover {
   padding-top: 1rem;
   justify-content: center;
 }
-.innhold {
-  display: flex;
-  flex-direction: row;
+.feilmeldinger {
   padding: 2rem;
-}
-.f1,
-.f2,
-.f3,
-.f4,
-.f5 {
-  width: 40rem;
-  background-color: white;
-  padding: 2rem;
-  margin: 1rem;
-}
-.blank {
-  margin: 2rem;
 }
 .navn-og-bilde {
   display: flex;
@@ -136,10 +124,6 @@ a:hover {
   display: flex;
   flex-direction: row;
   margin-bottom: 20rem;
-}
-.info {
-  padding: 3rem;
-}
-.oppgaver {
-  padding: 3rem;
+  padding-left: 2rem;
+  gap: 3rem;
 }

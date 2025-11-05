@@ -159,4 +159,5 @@ export const supportTickets = [
     assignee: "Jordan Reed",
     timestamp: "2025-10-28T19:30:00Z"
   }
-];
+]
+;
