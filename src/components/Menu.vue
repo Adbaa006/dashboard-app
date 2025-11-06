@@ -8,7 +8,6 @@ console.log(supportTickets)
 <template>
     <aside class="menu">
       <div class="bruker">
-        <img src="/Users/adbaa007/project/dashboard-app/src/images/profil2.svg" alt="">
         <h3>{{ userProfile.firstName }} {{ userProfile.lastName }}</h3>
         <p>{{ userProfile.email }}</p>
       </div>

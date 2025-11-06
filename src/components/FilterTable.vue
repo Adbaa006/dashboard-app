@@ -63,7 +63,11 @@ const filteredTickets = computed(() => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="ticket in filteredTickets" :key="ticket.id">
+        <tr 
+          v-for="ticket in filteredTickets" :key="ticket.id"
+          @click="$router.push('/ticket/${ticket.id}')"
+          class="clickable-row"
+        >
         <td>{{ ticket.id }}</td>
         <td>
           <span :class="['badge', priorityClass(ticket.priority)]">
@@ -135,4 +139,13 @@ tr:hover {
 .priority-high { background: #b91c1c; }
 .priority-medium { background: #f59e0b; }
 .priority-low { background: #22c55e; }
+
+.clickable-row {
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.clickable-row:hover {
+  background: #a4a4a4;
+}
 </style>

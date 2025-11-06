@@ -6,6 +6,8 @@ import Profil from './pages/Profil.vue'
 import Navbar from './components/Navbar.vue'
 import Menu from './components/Menu.vue'
 import Footer from './components/Footer.vue'
+import Detaljer from './pages/Detaljer.vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = {
   '/': Home,
@@ -21,6 +23,13 @@ window.addEventListener('hashchange', () => {
 
 const currentView = computed(() =>{
   return routes[currentPath.value.slice(1) || '/']
+})
+
+const router = createRouter ({
+  history: createWebHashHistory(),
+  routes: [
+    {path: '/ticket/:id', component: Detaljer}
+  ]
 })
 </script>
 

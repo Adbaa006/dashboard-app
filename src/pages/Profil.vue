@@ -37,7 +37,8 @@ console.log(supportTickets)
             <div class="oppgaver">
                 <h3>Roles</h3>
                 <div v-for="value in userProfile.roles">
-                    {{ value.name }}
+                    <strong>{{ value.name }}:</strong>
+                    {{ value.description }}
                 </div>
             </div>
         </div>
@@ -46,7 +47,11 @@ console.log(supportTickets)
 
 <style scoped>
 img {
-    max-width: 15rem;
+    width: 13rem;
+    clip-path: circle(50%);
+}
+main {
+    padding: 2rem;
 }
 h2 {
     font-size: xx-large;

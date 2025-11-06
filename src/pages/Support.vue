@@ -4,5 +4,13 @@
 </script>
 
 <template>
-   <FilterTable />
+    <div class="tabell">
+        <FilterTable />
+    </div>
 </template>
+
+<style scoped>
+.tabell {
+    padding: 4rem;
+}
+</style>
