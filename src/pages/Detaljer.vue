@@ -1,14 +1,14 @@
 <script setup>
 import { useRoute } from 'vue-router'
+import { computed } from 'vue';
 import { supportTickets } from '@/data/supportData';
-
-console.log(supportTickets)
 
 const route = useRoute()
 
-const ticketId = parseInt(route.params.id)
-
-const ticket = supportTickets.find(t => t.id === ticketId)
+const ticket = computed(() => {
+  const id = parseInt(route.params.id)
+  return supportTickets.find(t => t.id === id)
+})
 
 const formatDate = (timestamp) => {
     return new Date(timestamp).toLocaleTimeString('no-NO', {
@@ -19,23 +19,29 @@ const formatDate = (timestamp) => {
 </script>
 
 <template>
-    <div class="ticket-details" v-if="ticket">
-    <h2>{{ ticket.subject }}</h2>
-    <p><strong>Kunde:</strong> {{ ticket.customer }}</p>
-    <p><strong>Status:</strong> {{ ticket.status }}</p>
-    <p><strong>Prioritet:</strong> {{ ticket.priority }}</p>
-    <p><strong>Tildelt til:</strong> {{ ticket.assignee }}</p>
-    <p><strong>Beskrivelse:</strong> {{ ticket.description }}</p>
-    <p><strong>Opprettet:</strong> {{ formatDate(ticket.timestamp) }}</p>
-
-    <router-link to="/home" class="back-link">← Tilbake til oversikten</router-link>
+  <div v-if="ticket.value" class="ticket-details" >
+    <div class="ticket-name">
+      <h1>{{ ticket.value.subject }}</h1>
+      <p>{{ ticket.value.customer }}</p>
+    </div>
+    <div class="ticket-details">
+      <div class="details">
+        <p><strong>Description</strong></p>
+        <p>{{ ticket.value.description }}</p>
+      </div>
+      <div class="more-details">
+        <p><strong>Status: </strong> {{ ticket.value.status }}</p>
+        <p><strong>Priority: </strong> {{ ticket.value.priority }}</p>
+        <p><strong>Assigned: </strong> {{ ticket.value.assignee }}</p>
+        <p><strong>Timestamp: </strong> {{ formatDate(ticket.value.timestamp) }}</p>
+      </div>
+    </div>
+    <router-link to="/support" class="back-link">Back to the menu</router-link>
   </div>
-
   <div v-else class="not-found">
-    <h2>Fant ikke saken</h2>
-    <router-link to="/home">Tilbake</router-link>
+    <h2>Could not find ticket</h2>
+    <router-link to="/support"><p>Back</p></router-link>
   </div>
-
 </template>
 
 <style scoped>

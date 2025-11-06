@@ -39,7 +39,7 @@ const priorityClass = (priority) => {
                     <th>Customer</th>
                     <th>Subject</th>
                     <th>Status</th>
-                    <th>Assignee</th>
+                    <th>Assigned</th>
                     <th>Timestamp</th>
                 </tr>
             </thead>

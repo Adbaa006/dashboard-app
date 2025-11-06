@@ -1,13 +1,11 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { supportTickets } from '@/data/supportData'
-import { useRouter } from 'vue-router'
 
-const formatDate = (timestamp) => {
-  return new Date(timestamp).toLocaleString('en-US', {
-    dateStyle: 'medium',
-    timeStyle: 'short'
-  })
+const emit = defineEmits(['select-ticket'])
+
+const selectTicket = (id) => {
+  emit('select-ticket', id)
 }
 
 const statusClass = (status) => {
@@ -59,28 +57,24 @@ const filteredTickets = computed(() => {
           <th>Customer</th>
           <th>Subject</th>
           <th>Status</th>
-          <th>Assignee</th>
-          <th>Timestamp</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="ticket in filteredTickets" :key="ticket.id" @click="useRouter('/detaljer')" class="clickable-row">
-        <td>{{ ticket.id }}</td>
-        <td>
-          <span :class="['badge', priorityClass(ticket.priority)]">
-            {{ ticket.priority }}
-          </span>
-        </td>
-        <td>{{ ticket.customer }}</td>
-        <td>{{ ticket.subject }}</td>
-        <td>
-          <span :class="['badge', statusClass(ticket.status)]">
-            {{ ticket.status }}
-          </span>
-        </td>
-        <td>{{ ticket.assignee }}</td>
-        <td>{{ formatDate(ticket.timestamp) }}</td>
-      </tr>
+        <tr v-for="ticket in filteredTickets" :key="ticket.id" @click="selectTicket(ticket.id)">
+          <td>{{ ticket.id }}</td>
+          <td>
+            <span :class="['badge', priorityClass(ticket.priority)]">
+              {{ ticket.priority }}
+            </span>
+          </td>
+          <td>{{ ticket.customer }}</td>
+          <td>{{ ticket.subject }}</td>
+          <td>
+            <span :class="['badge', statusClass(ticket.status)]">
+              {{ ticket.status }}
+            </span>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -93,6 +87,10 @@ const filteredTickets = computed(() => {
 }
 h2 {
   color: rgb(0, 8, 22);
+}
+p {
+  color: rgb(0, 8, 22);
+  padding-left: 2rem;
 }
 .table-title {
   margin-bottom: 2rem;
