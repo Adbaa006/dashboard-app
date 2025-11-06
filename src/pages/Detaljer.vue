@@ -2,6 +2,8 @@
 import { useRoute } from 'vue-router'
 import { supportTickets } from '@/data/supportData';
 
+console.log(supportTickets)
+
 const route = useRoute()
 
 const ticketId = parseInt(route.params.id)
@@ -26,12 +28,12 @@ const formatDate = (timestamp) => {
     <p><strong>Beskrivelse:</strong> {{ ticket.description }}</p>
     <p><strong>Opprettet:</strong> {{ formatDate(ticket.timestamp) }}</p>
 
-    <router-link to="/" class="back-link">← Tilbake til oversikten</router-link>
+    <router-link to="/home" class="back-link">← Tilbake til oversikten</router-link>
   </div>
 
   <div v-else class="not-found">
     <h2>Fant ikke saken</h2>
-    <router-link to="/">Tilbake</router-link>
+    <router-link to="/home">Tilbake</router-link>
   </div>
 
 </template>

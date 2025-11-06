@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { supportTickets } from '@/data/supportData'
+import { useRouter } from 'vue-router'
 
 const formatDate = (timestamp) => {
   return new Date(timestamp).toLocaleString('en-US', {
@@ -28,7 +29,7 @@ const priorityClass = (priority) => {
   }
 }
 
-const filter = ref('All') // Start med å vise åpne saker
+const filter = ref('All')
 
 const filteredTickets = computed(() => {
   if (filter.value === 'All') return supportTickets
@@ -63,11 +64,7 @@ const filteredTickets = computed(() => {
         </tr>
       </thead>
       <tbody>
-        <tr 
-          v-for="ticket in filteredTickets" :key="ticket.id"
-          @click="$router.push('/ticket/${ticket.id}')"
-          class="clickable-row"
-        >
+        <tr v-for="ticket in filteredTickets" :key="ticket.id" @click="useRouter('/detaljer')" class="clickable-row">
         <td>{{ ticket.id }}</td>
         <td>
           <span :class="['badge', priorityClass(ticket.priority)]">
@@ -94,7 +91,9 @@ const filteredTickets = computed(() => {
   padding: 3rem;
   overflow-x: auto;
 }
-
+h2 {
+  color: rgb(0, 8, 22);
+}
 .table-title {
   margin-bottom: 2rem;
 }

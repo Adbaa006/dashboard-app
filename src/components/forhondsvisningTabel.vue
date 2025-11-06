@@ -65,6 +65,9 @@ const priorityClass = (priority) => {
   padding: 1rem;
   overflow-x: auto;
 }
+h2 {
+  color: rgb(0, 8, 22);
+}
 
 .table-title {
   margin-bottom: 2rem;

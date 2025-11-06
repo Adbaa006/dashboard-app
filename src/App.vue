@@ -13,6 +13,7 @@ const routes = {
   '/': Home,
   '/support': Support,
   '/profil': Profil,
+  '/detaljer/:id': Detaljer
 }
 
 const currentPath = ref(window.location.hash)
@@ -25,12 +26,12 @@ const currentView = computed(() =>{
   return routes[currentPath.value.slice(1) || '/']
 })
 
-const router = createRouter ({
-  history: createWebHashHistory(),
-  routes: [
-    {path: '/ticket/:id', component: Detaljer}
-  ]
-})
+//const router = createRouter ({
+//  history: createWebHashHistory(),
+//  routes: [
+//    {path: '/ticket/:id', component: Detaljer}
+//  ]
+//})
 </script>
 
 <template>
@@ -42,4 +43,4 @@ const router = createRouter ({
     </main>
     <footer class="footer"><Footer /></footer>
   </container>
-</template>
+</template> 

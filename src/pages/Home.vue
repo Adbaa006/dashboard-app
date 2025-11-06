@@ -21,3 +21,9 @@ console.log(supportTickets)
   </main>
 </template>
 
+<style scoped>
+h1,
+p {
+  color: rgb(0, 8, 22);
+}
+</style>

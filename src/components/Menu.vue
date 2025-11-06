@@ -32,4 +32,8 @@ console.log(supportTickets)
 img {
   max-width: 3rem;
 }
+h3,
+p {
+  color: whitesmoke;
+}
 </style>

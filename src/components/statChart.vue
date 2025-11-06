@@ -46,6 +46,9 @@ img {
 h2 {
   font-size: 50px;
   font-weight: 100;
-  color: antiquewhite;
+  color: whitesmoke;
+}
+h4 {
+  color: whitesmoke;
 }
 </style>
