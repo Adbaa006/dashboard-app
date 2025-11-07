@@ -6,7 +6,7 @@
     const router = useRouter()
 
     const openTicket = (id) => {
-        router.push({ name: 'Detaljer', params: {id } })
+        router.push({ name: 'Detaljer', params: { id } })
     }
 </script>
 
@@ -18,6 +18,9 @@
 
 <style scoped>
 .tabell {
-    padding: 4rem;
+    background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 </style>

@@ -14,7 +14,7 @@ console.log(supportTickets)
       <nav class=" menyikoner">
         <div class="hjem">
           <img src="/Users/adbaa007/project/dashboard-app/src/images/hjem.svg" alt="">
-          <router-link to="/">Hjem</router-link>
+          <router-link to="/">Home</router-link>
         </div>
         <div class="stotte">
           <img src="/Users/adbaa007/project/dashboard-app/src/images/service.svg" alt="">
@@ -22,7 +22,7 @@ console.log(supportTickets)
         </div>
         <div class="logget_inn">
           <img src="/Users/adbaa007/project/dashboard-app/src/images/profil2.svg" alt="">
-          <router-link to="/profil">Profil</router-link>
+          <router-link to="/profil">Profile</router-link>
         </div>
       </nav>
     </aside>

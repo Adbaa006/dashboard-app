@@ -3,6 +3,12 @@ import { ref, computed } from 'vue'
 import { supportTickets } from '@/data/supportData'
 
 const emit = defineEmits(['select-ticket'])
+const filter = ref('All')
+
+const filteredTickets = computed(() => {
+  if (filter.value === 'All') return supportTickets
+  return supportTickets.filter(t => t.status === filter.value)
+})
 
 const selectTicket = (id) => {
   emit('select-ticket', id)
@@ -27,12 +33,7 @@ const priorityClass = (priority) => {
   }
 }
 
-const filter = ref('All')
 
-const filteredTickets = computed(() => {
-  if (filter.value === 'All') return supportTickets
-  return supportTickets.filter(t => t.status === filter.value)
-})
 </script>
 
 <template>
@@ -60,7 +61,7 @@ const filteredTickets = computed(() => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="ticket in filteredTickets" :key="ticket.id" @click="selectTicket(ticket.id)">
+        <tr v-for="ticket in filteredTickets" :key="ticket.id" @click="selectTicket(ticket.id)" class="clickable-row">
           <td>{{ ticket.id }}</td>
           <td>
             <span :class="['badge', priorityClass(ticket.priority)]">

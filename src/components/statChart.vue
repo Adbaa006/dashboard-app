@@ -2,7 +2,7 @@
     <div class="stats">
       <div class="stats1">
         <div class="headline">
-          <h4>Tjent</h4>
+          <h4>Earned</h4>
           <img src="/Users/adbaa007/project/dashboard-app/src/images/tjent.svg" alt="">
         </div>
         <div class="number">
@@ -11,7 +11,7 @@
       </div>
       <div class="stats2">
         <div class="headline">
-          <h4>Aktive kunder</h4>
+          <h4>Active customers</h4>
           <img src="/Users/adbaa007/project/dashboard-app/src/images/kunder.svg" alt="">
         </div>
         <div class="number">
@@ -20,7 +20,7 @@
       </div>
       <div class="stats3">
         <div class="headline">
-          <h4>Problemer løst</h4>
+          <h4>Solved cases</h4>
           <img src="/Users/adbaa007/project/dashboard-app/src/images/problemer.svg" alt="">
         </div>
         <div class="number">
