@@ -1,13 +1,13 @@
 <script setup>
-    import FilterTable from '@/components/FilterTable.vue';
-    import MeldingTabel from '@/components/MeldingTabel.vue';
-    import { useRouter } from 'vue-router';
+import FilterTable from '@/components/FilterTable.vue';
+import MeldingTabel from '@/components/MeldingTabel.vue';
+import { useRouter } from 'vue-router';
 
-    const router = useRouter()
+const router = useRouter()
 
-    const openTicket = (id) => {
-        router.push({ name: 'Detaljer', params: { id } })
-    }
+const openTicket = (id) => {
+    router.push({ name: 'Detaljer', params: { id } })
+}
 </script>
 
 <template>

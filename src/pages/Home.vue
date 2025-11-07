@@ -3,9 +3,15 @@ import ForhondsvisningTabel from '@/components/ForhondsvisningTabel.vue';
 import FilterTable from '@/components/FilterTable.vue';
 import { userProfile, supportTickets } from '@/data/supportData';
 import StatChart from '@/components/StatChart.vue';
-
+import { useRouter } from 'vue-router';
 console.log(userProfile)
 console.log(supportTickets)
+
+const router = useRouter()
+
+const openTicket = (id) => {
+  router.push({ name: 'Detaljer', params: { id } })
+}
 </script>
 
 <template>
@@ -16,7 +22,7 @@ console.log(supportTickets)
     </header>
     <statChart />
     <div class="feilmeldinger">
-      <ForhondsvisningTabel />
+      <ForhondsvisningTabel @select-ticket="openTicket"/>
     </div>
   </main>
 </template>

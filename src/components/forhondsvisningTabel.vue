@@ -10,6 +10,12 @@ const formatDate = (timestamp) => {
   })
 }
 
+const emit = defineEmits(['select-ticket'])
+
+const selectTicket = (id) => {
+  emit('select-ticket', id)
+}
+
 const statusClass = (status) => {
   switch (status) {
     case 'Open': return 'status-open'
@@ -44,7 +50,7 @@ const priorityClass = (priority) => {
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="ticket in tickets" :key="ticket.id">
+                <tr v-for="ticket in tickets" :key="ticket.id" @click="selectTicket(ticket.id)" class="clickable-row">
                     <td>{{ ticket.id }}</td>
                     <td>
                         <span :class="['badge', priorityClass(ticket.priority)]">
@@ -53,7 +59,11 @@ const priorityClass = (priority) => {
                     </td>
                     <td>{{ ticket.customer }}</td>
                     <td>{{ ticket.subject }}</td>
-                    <td>{{ ticket.status }}</td>
+                    <td>
+                      <span :class="['badge', statusClass(ticket.status)]">
+                        {{ ticket.status }}
+                      </span>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -105,12 +115,21 @@ tr:hover {
   color: whitesmoke;
 }
 
-.status-open { background: #ef4444; }       
+.status-open { background: #b91c1c; }       
 .status-progress { background: #f59e0b; }   
-.status-resolved { background: #10b981; }   
+.status-resolved { background: #22c55e; }   
 .status-closed { background: #6b7280; }     
 
 .priority-high { background: #b91c1c; }
 .priority-medium { background: #f59e0b; }
 .priority-low { background: #22c55e; }
+
+.clickable-row {
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.clickable-row:hover {
+  background: #a4a4a4;
+}
 </style>

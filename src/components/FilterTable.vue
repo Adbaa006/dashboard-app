@@ -3,16 +3,17 @@ import { ref, computed } from 'vue'
 import { supportTickets } from '@/data/supportData'
 
 const emit = defineEmits(['select-ticket'])
+
+const selectTicket = (id) => {
+  emit('select-ticket', id)
+}
+
 const filter = ref('All')
 
 const filteredTickets = computed(() => {
   if (filter.value === 'All') return supportTickets
   return supportTickets.filter(t => t.status === filter.value)
 })
-
-const selectTicket = (id) => {
-  emit('select-ticket', id)
-}
 
 const statusClass = (status) => {
   switch (status) {
