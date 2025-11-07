@@ -14,15 +14,15 @@ console.log(supportTickets)
       <nav class=" menyikoner">
         <div class="hjem">
           <img src="/Users/adbaa007/project/dashboard-app/src/images/hjem.svg" alt="">
-          <a href="#/"><h3>Home</h3></a>
+          <router-link to="/">Home</router-link>
         </div>
         <div class="stotte">
           <img src="/Users/adbaa007/project/dashboard-app/src/images/service.svg" alt="">
-          <a href="#/support"><h3>Support</h3></a>
+          <router-link to="/support">Support</router-link>
         </div>
         <div class="logget_inn">
           <img src="/Users/adbaa007/project/dashboard-app/src/images/profil2.svg" alt="">
-          <a href="#/profil"><h3>Profile</h3></a>
+          <router-link to="/profil">Profile</router-link>
         </div>
       </nav>
     </aside>
