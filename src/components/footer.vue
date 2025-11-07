@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <h4>Designet og kodet av Adele Bang-Johansen</h4>
+    <h4>Designed and produced by Adele Bang-Johansen</h4>
   </footer>
 </template>
 
