@@ -1,8 +1,6 @@
 <script setup>
-import ForhondsvisningTabel from '@/components/ForhondsvisningTabel.vue';
 import FilterTable from '@/components/FilterTable.vue';
 import { userProfile, supportTickets } from '@/data/supportData';
-import StatChart from '@/components/StatChart.vue';
 
 console.log(userProfile)
 console.log(supportTickets)
