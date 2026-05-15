@@ -1,13 +1,19 @@
 <script setup>
 import { useRoute } from 'vue-router'
-import { computed } from 'vue';
-import { supportTickets } from '../data/supportData';
+import { computed, onMounted } from 'vue';
+import { getTickets } from '@/services/api';
 
 const route = useRoute()
 
+const tickets = ref([])
+
+onMounted(async () => {
+  tickets.value = await getTickets
+})
+
 const ticket = computed(() => {
   const id = Number(route.params.id)
-  return supportTickets.find(t => t.id === id)
+  return getTickets.find(t => t.id === id)
 })
 
 const formatDate = (timestamp) => {
