@@ -1,6 +1,6 @@
 <script setup>
 import FilterTable from '@/components/FilterTable.vue';
-import { userProfile, supportTickets } from '@/data/supportData';
+import { userProfile, supportTickets } from '../data/supportData';
 
 console.log(userProfile)
 console.log(supportTickets)

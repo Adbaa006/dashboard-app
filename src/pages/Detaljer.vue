@@ -1,7 +1,7 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import { computed } from 'vue';
-import { supportTickets } from '@/data/supportData';
+import { supportTickets } from '../data/supportData';
 
 const route = useRoute()
 

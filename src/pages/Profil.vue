@@ -1,5 +1,5 @@
 <script setup>
-import { userProfile, supportTickets } from '@/data/supportData';
+import { userProfile, supportTickets } from '../data/supportData';
 
 console.log(userProfile)
 console.log(supportTickets)

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { supportTickets } from '@/data/supportData'
+import { supportTickets } from '../data/supportData'
 
 const emit = defineEmits(['select-ticket'])
 const filter = ref('All')
