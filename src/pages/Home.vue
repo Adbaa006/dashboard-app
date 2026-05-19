@@ -1,6 +1,7 @@
 <script setup>
 import FilterTable from '@/components/FilterTable.vue';
-import { userProfile, supportTickets } from '../data/supportData';
+import { userProfile, supportTickets } from '../data/supportData.js';
+import ForhondsvisningTabel from '@/components/forhondsvisningTabel.vue';
 
 console.log(userProfile)
 console.log(supportTickets)
@@ -15,6 +16,7 @@ console.log(supportTickets)
     <statChart />
     <div class="feilmeldinger">
       <ForhondsvisningTabel />
+
     </div>
   </main>
 </template>

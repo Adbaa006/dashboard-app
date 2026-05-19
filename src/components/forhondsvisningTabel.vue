@@ -32,7 +32,7 @@ const priorityClass = (priority) => {
 
 <template>
     <div class="tickets-table">
-        <h2 class="table-title">Support tickets</h2>
+        <h2 class="table-title">High priority cases</h2>
         <table>
             <thead>
                 <tr>

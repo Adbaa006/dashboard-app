@@ -1,5 +1,6 @@
 <script setup>
     import FilterTable from '@/components/FilterTable.vue';
+import Lagtickets from '@/components/lagtickets.vue';
     import MeldingTabel from '@/components/MeldingTabel.vue';
     import { useRouter } from 'vue-router';
 
@@ -13,6 +14,9 @@
 <template>
     <div class="tabell">
         <FilterTable @select-ticket="openTicket"/>
+    </div>
+    <div class="legge-til-ticket">
+        <Lagtickets/>
     </div>
 </template>
 

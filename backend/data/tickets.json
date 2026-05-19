@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": 1779094828714,
+    "customer": "Collicare Solutions",
+    "subject": "Slow response time on computers",
+    "description": "Test",
+    "status": "Open",
+    "priority": "Medium",
+    "assignee": "Unassigned",
+    "timestamp": "2026-05-18T09:00:28.714Z"
+  }
+]
