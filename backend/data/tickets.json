@@ -13,7 +13,7 @@
     "id": 2,
     "customer": "Beta Solutions",
     "subject": "Unable to reset password",
-    "description":"Password reset emails are not being sent to customers. SMTP configuration may be outdated.",
+    "description": "Password reset emails are not being sent to customers. SMTP configuration may be outdated.",
     "status": "In Progress",
     "priority": "Medium",
     "assignee": "Taylor Morgan",
@@ -100,7 +100,7 @@
     "timestamp": "2025-10-28T19:30:00Z"
   },
   {
-    "id": 1779094828714,
+    "id": 11,
     "customer": "Collicare Solutions",
     "subject": "Slow response time on computers",
     "description": "Test",
@@ -110,7 +110,7 @@
     "timestamp": "2026-05-18T09:00:28.714Z"
   },
   {
-    "id": 1779182577572,
+    "id": 12,
     "customer": "test",
     "subject": "test",
     "description": "Test",
@@ -120,7 +120,7 @@
     "timestamp": "2026-05-19T09:22:57.572Z"
   },
   {
-    "id": 1779266453262,
+    "id": 13,
     "customer": "Test Testesen",
     "subject": "Test",
     "description": "Tester",
@@ -128,5 +128,15 @@
     "priority": "Low",
     "assignee": "Unassigned",
     "timestamp": "2026-05-20T08:40:53.262Z"
+  },
+  {
+    "id": 14,
+    "customer": "Tester",
+    "subject": "Tester",
+    "description": "Tester",
+    "status": "Tester",
+    "priority": "Tester",
+    "assignee": "Unassigned",
+    "timestamp": "2026-05-20T09:18:42.699Z"
   }
 ]

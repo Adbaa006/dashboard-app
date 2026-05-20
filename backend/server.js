@@ -62,8 +62,12 @@ app.post('/tickets', async (req, res) => {
 
   const tickets = await readTickets()
 
+  const nextId = tickets.length > 0
+  ? Math.max(...tickets.map(t => t.id)) + 1
+  : 1
+
   const newTicket = {
-    id: Date.now(),
+    id: nextId,
 
     customer: req.body.customer,
 
@@ -71,11 +75,11 @@ app.post('/tickets', async (req, res) => {
 
     description: req.body.description,
 
-    status: req.body.status || 'Open',
+    status: req.body.status,
 
-    priority: req.body.priority || 'Medium',
+    priority: req.body.priority,
 
-    assignee: req.body.assignee || 'Unassigned',
+    assignee: req.body.assignee,
 
     timestamp: new Date().toISOString()
   }
