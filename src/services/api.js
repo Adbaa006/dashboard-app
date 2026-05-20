@@ -24,3 +24,12 @@ export async function createTicket(ticket) {
 
   return await response.json()
 }
+
+export async function getTicket(id) {
+
+  const response = await fetch(
+    `http://localhost:3000/tickets/${id}`
+  )
+
+  return await response.json()
+}
