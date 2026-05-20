@@ -1,30 +1,44 @@
 <script setup>
-    import FilterTable from '@/components/FilterTable.vue';
-import Lagtickets from '@/components/lagtickets.vue';
-    import MeldingTabel from '@/components/MeldingTabel.vue';
-    import { useRouter } from 'vue-router';
+import { ref, onMounted } from 'vue'
 
-    const router = useRouter()
+import CreateTicket from '@/components/CreateTicket.vue'
+import FilterTable from '@/components/FilterTable.vue'
 
-    const openTicket = (id) => {
-        router.push({ name: 'Detaljer', params: { id } })
-    }
+import {
+  getTickets,
+  createTicket
+} from '@/services/api'
+
+
+const tickets = ref([])
+
+
+const loadTickets = async () => {
+
+  tickets.value = await getTickets()
+}
+
+
+onMounted(loadTickets)
+
+
+const handleCreateTicket = async (ticketData) => {
+
+  await createTicket(ticketData)
+
+  await loadTickets()
+}
 </script>
 
-<template>
-    <div class="tabell">
-        <FilterTable @select-ticket="openTicket"/>
-    </div>
-    <div class="legge-til-ticket">
-        <Lagtickets/>
-    </div>
-</template>
 
-<style scoped>
-.tabell {
-    background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-</style>
+<template>
+
+  <CreateTicket
+    @create-ticket="handleCreateTicket"
+  />
+
+  <FilterTable
+    :tickets="tickets"
+  />
+
+</template>

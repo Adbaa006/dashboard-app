@@ -14,11 +14,11 @@ const submitTicket = async () => {
 
     customer: customer.value,
 
-    description: 'Test',
+    description: description.value,
 
-    status: 'Open',
+    status: status.value,
 
-    priority: 'Medium'
+    priority: priority.value
   })
 
   alert('Ticket created')
@@ -36,6 +36,21 @@ const submitTicket = async () => {
   <input
     v-model="customer"
     placeholder="Customer"
+  />
+
+  <input 
+    v-model="description"
+    placeholder="Description"
+  />
+
+  <input 
+    v-model="status"
+    placeholder="Status"
+  />
+
+  <input 
+    v-model="priority"
+    placeholder="Priority"
   />
 
   <button @click="submitTicket">
