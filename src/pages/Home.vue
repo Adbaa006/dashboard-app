@@ -1,7 +1,7 @@
 <script setup>
 import { userProfile, supportTickets } from '../data/supportData.js';
 import PreviewTable from '@/components/PreviewTable.vue';
-import StatChart from '@/components/StatChart.vue';
+import TempChart from '@/components/TempChart.vue';
 
 console.log(userProfile)
 console.log(supportTickets)
@@ -13,7 +13,7 @@ console.log(supportTickets)
       <h1>Welcome, {{ userProfile.firstName }}</h1>
       <p>Role: {{ userProfile.role }}</p>
     </header>
-    <StatChart />
+    <TempChart />
     <div class="feilmeldinger">
       <PreviewTable />
     </div>
