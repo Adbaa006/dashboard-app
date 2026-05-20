@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 
 import CreateTicket from '@/components/CreateTicket.vue'
-import FilterTable from '@/components/FilterTable.vue'
+import CompleteTable from '@/components/CompleteTable.vue'
 
 import {
   getTickets,
@@ -37,7 +37,7 @@ const handleCreateTicket = async (ticketData) => {
     @create-ticket="handleCreateTicket"
   />
 
-  <FilterTable
+  <CompleteTable
     :tickets="tickets"
   />
 

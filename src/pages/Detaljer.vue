@@ -1,7 +1,7 @@
 <script setup>
 import { useRoute } from 'vue-router'
 import { computed, onMounted } from 'vue';
-import { getTickets } from '@/services/api';
+import { supportTickets } from '@/data/supportData';
 
 const route = useRoute()
 

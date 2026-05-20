@@ -2,8 +2,15 @@
 import { ref } from 'vue'
 import { createTicket } from '@/services/api'
 
+const emit = defineEmits([
+  'create-ticket'
+])
+
 const subject = ref('')
 const customer = ref('')
+const description = ref('')
+const status = ref('')
+const priority = ref('')
 
 
 const submitTicket = async () => {

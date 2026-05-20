@@ -33,6 +33,9 @@ const priorityClass = (priority) => {
   }
 }
 
+defineProps({
+  tickets: Array
+})
 
 </script>
 
