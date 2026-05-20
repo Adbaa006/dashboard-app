@@ -110,16 +110,6 @@
     "timestamp": "2026-05-18T09:00:28.714Z"
   },
   {
-    "id": 12,
-    "customer": "test",
-    "subject": "test",
-    "description": "Test",
-    "status": "Open",
-    "priority": "Medium",
-    "assignee": "Unassigned",
-    "timestamp": "2026-05-19T09:22:57.572Z"
-  },
-  {
     "id": 13,
     "customer": "Test Testesen",
     "subject": "Test",

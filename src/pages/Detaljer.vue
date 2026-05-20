@@ -1,8 +1,8 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-
 import { getTicket } from '@/services/api'
+import { deleteTicket } from '@/services/api'
 
 const route = useRoute()
 
@@ -18,13 +18,35 @@ onMounted(async () => {
   console.log(ticket.value)
 })
 
-
 const formatDate = (timestamp) => {
 
   return new Date(timestamp).toLocaleString('no-NO', {
     dateStyle: 'medium',
     timeStyle: 'short'
   })
+}
+
+const removeTicket = async () => {
+
+  const firstConfirm = confirm(
+    'Are you sure you want to delete this ticket?'
+  )
+
+  if (!firstConfirm) return
+
+
+  const secondConfirm = confirm(
+    'This action cannot be undone. Delete permanently?'
+  )
+
+  if (!secondConfirm) return
+
+
+  await deleteTicket(ticket.value.id)
+
+  alert('Ticket deleted')
+
+  router.push('/support')
 }
 </script>
 
@@ -46,8 +68,19 @@ const formatDate = (timestamp) => {
         <p><strong>Timestamp: </strong> {{ formatDate(ticket.timestamp) }}</p>
       </div>
     </div>
-    <router-link to="/support" class="back-link"><p>Back to the menu</p></router-link>
+    <div class="bottom">
+      <div class="link">
+        <router-link to="/support" class="back-link"><p>Back to the menu</p></router-link>
+      </div>
+      <button
+        class="delete-btn"
+        @click="removeTicket"
+        >
+        <p>Delete Ticket</p>
+      </button>
+    </div>
   </div>
+
   <div v-else class="not-found">
     <h2>Could not find ticket</h2>
     <router-link to="/support"><p>Back</p></router-link>
@@ -94,5 +127,24 @@ h1 {
 .not-found {
   padding: 2rem;
   text-align: center;
+}
+.delete-btn {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 20px;
+}
+.delete-btn:hover {
+  opacity: 0.9;
+}
+.link {
+  margin-top: 20px;
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

@@ -9,6 +9,7 @@ const emit = defineEmits([
 const subject = ref('')
 const customer = ref('')
 const description = ref('')
+const assigned = ref('')
 const status = ref('')
 const priority = ref('')
 
@@ -22,6 +23,8 @@ const submitTicket = async () => {
     customer: customer.value,
 
     description: description.value,
+
+    assigned: assigned.value,
 
     status: status.value,
 
@@ -48,6 +51,11 @@ const submitTicket = async () => {
   <input 
     v-model="description"
     placeholder="Description"
+  />
+
+  <input 
+    v-model="assigned"
+    placeholder="Assigned"
   />
 
   <input 

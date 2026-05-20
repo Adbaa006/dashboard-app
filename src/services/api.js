@@ -33,3 +33,15 @@ export async function getTicket(id) {
 
   return await response.json()
 }
+
+export async function deleteTicket(id) {
+
+  const response = await fetch(
+    `http://localhost:3000/tickets/${id}`,
+    {
+      method: 'DELETE'
+    }
+  )
+
+  return await response.json()
+}
