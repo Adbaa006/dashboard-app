@@ -1,7 +1,7 @@
 <script setup>
 import { userProfile, supportTickets } from '../data/supportData.js';
 import PreviewTable from '@/components/PreviewTable.vue';
-import StatChart from '@/components/statChart.vue';
+import StatChart from '@/components/StatChart.vue';
 
 console.log(userProfile)
 console.log(supportTickets)

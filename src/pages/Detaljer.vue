@@ -1,33 +1,31 @@
 <script setup>
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { computed, onMounted } from 'vue';
-import { supportTickets } from '@/data/supportData';
+
+import { getTicket } from '@/services/api'
 
 const route = useRoute()
 
-const tickets = ref([])
+const ticket = ref(null)
+
 
 onMounted(async () => {
-  tickets.value = await getTickets
+
+  ticket.value = await getTicket(
+    route.params.id
+  )
+
+  console.log(ticket.value)
 })
 
-const ticket = computed(() => {
-  const id = Number(route.params.id)
-  return getTickets.find(t => t.id === id)
-})
 
 const formatDate = (timestamp) => {
+
   return new Date(timestamp).toLocaleString('no-NO', {
-      dateStyle: 'medium',
-      timeStyle: 'short'
+    dateStyle: 'medium',
+    timeStyle: 'short'
   })
 }
-
-console.log('route id:', route.params.id)
-console.log('tickets ids:', supportTickets.map(t => t.id))
-console.log('Route params:', route.params)
-console.log('Parsed id:', parseInt(route.params.id))
-console.log('Matching ticket:', supportTickets.find(t => t.id === parseInt(route.params.id)))
 </script>
 
 <template>

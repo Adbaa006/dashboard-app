@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 
 import CreateTicket from '@/components/CreateTicket.vue'
 import CompleteTable from '@/components/CompleteTable.vue'
@@ -11,7 +12,7 @@ import {
 
 
 const tickets = ref([])
-
+const router = useRouter()
 
 const loadTickets = async () => {
 
@@ -28,6 +29,11 @@ const handleCreateTicket = async (ticketData) => {
 
   await loadTickets()
 }
+
+const openTicket = (id) => {
+
+  router.push(`/detaljer/${id}`)
+}
 </script>
 
 
@@ -38,7 +44,8 @@ const handleCreateTicket = async (ticketData) => {
   />
 
   <CompleteTable
-    :tickets="tickets"
-  />
+  :tickets="tickets"
+  @select-ticket="openTicket"
+/>
 
 </template>
