@@ -1,3 +1,7 @@
+<script>
+
+</script>
+
 <template>
     <div class="stats">
       <div class="stats1">
