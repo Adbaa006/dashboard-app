@@ -50,7 +50,6 @@ const priorityClass = (priority) => {
 <template>
   <div>
     <div class="filter-bar">
-      <h2 class="table-title">Support tickets</h2>
       <label>Filter: </label>
       <select v-model="filter">
         <option value="All">All</option>
@@ -73,7 +72,7 @@ const priorityClass = (priority) => {
       </thead>
       <tbody>
         <tr v-for="ticket in filteredTickets" :key="ticket.id" @click="selectTicket(ticket.id)" class="clickable-row">
-          <td>{{ ticket.id }}</td>
+          <td>{{ ticket.ticketNumber }}</td>
           <td>
             <span :class="['badge', priorityClass(ticket.priority)]">
               {{ ticket.priority }}

@@ -1,7 +1,15 @@
 <script setup>
 import { supportTickets } from '../data/supportData.js'
+import { ref, computed } from 'vue'
 
 const tickets = supportTickets.filter(ticket => ticket.priority === 'High')
+
+const props = defineProps({
+  tickets: {
+    type: Array,
+    default: () => []
+  }
+})
 
 const formatDate = (timestamp) => {
   return new Date(timestamp).toLocaleString('en-US', {
@@ -45,7 +53,7 @@ const priorityClass = (priority) => {
             </thead>
             <tbody>
                 <tr v-for="ticket in tickets" :key="ticket.id">
-                    <td>{{ ticket.id }}</td>
+                    <td>{{ ticket.ticketNumber }}</td>
                     <td>
                         <span :class="['badge', priorityClass(ticket.priority)]">
                             {{ ticket.priority }}
@@ -53,7 +61,9 @@ const priorityClass = (priority) => {
                     </td>
                     <td>{{ ticket.customer }}</td>
                     <td>{{ ticket.subject }}</td>
-                    <td>{{ ticket.status }}</td>
+                    <span :class="['badge', statusClass(ticket.status)]">
+                      {{ ticket.status }}
+                    </span>
                 </tr>
             </tbody>
         </table>
@@ -93,10 +103,6 @@ td {
   font-size: 0.9rem;
 }
 
-tr:hover {
-  background: #f0f0f0;
-}
-
 .badge {
   padding: 0.25rem 0.5rem;
   border-radius: 6px;
@@ -111,6 +117,4 @@ tr:hover {
 .status-closed { background: #6b7280; }     
 
 .priority-high { background: #b91c1c; }
-.priority-medium { background: #f59e0b; }
-.priority-low { background: #22c55e; }
 </style>

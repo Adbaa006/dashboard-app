@@ -62,12 +62,12 @@ app.post('/tickets', async (req, res) => {
 
   const tickets = await readTickets()
 
-  const nextId = tickets.length > 0
-  ? Math.max(...tickets.map(t => t.id)) + 1
-  : 1
+  const nextTicketNumber = tickets.length + 1
 
   const newTicket = {
-    id: nextId,
+    id: Date.now(),
+
+    ticketNumber: nextTicketNumber,
 
     customer: req.body.customer,
 
@@ -125,11 +125,24 @@ app.delete('/tickets/:id', async (req, res) => {
 
   const tickets = await readTickets()
 
+
   const filtered = tickets.filter(
     t => t.id !== Number(req.params.id)
   )
 
-  await saveTickets(filtered)
+
+  // Gi nytt nummer til gjenværende tickets
+
+  const updatedTickets = filtered.map((ticket, index) => ({
+
+    ...ticket,
+
+    ticketNumber: index + 1
+  }))
+
+
+  await saveTickets(updatedTickets)
+
 
   res.json({
     message: 'Ticket deleted'

@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "ticketNumber": 1,
     "customer": "Acme Corp",
     "subject": "Login issue on dashboard",
     "description": "Users report being unable to log in using corporate SSO credentials. Error code 401 returned.",
@@ -11,6 +12,7 @@
   },
   {
     "id": 2,
+    "ticketNumber": 2,
     "customer": "Beta Solutions",
     "subject": "Unable to reset password",
     "description": "Password reset emails are not being sent to customers. SMTP configuration may be outdated.",
@@ -21,6 +23,7 @@
   },
   {
     "id": 3,
+    "ticketNumber": 3,
     "customer": "Orion Tech",
     "subject": "API returning 500 errors",
     "description": "The API intermittently returns 500 errors when fetching reports. Possibly related to new caching logic.",
@@ -31,6 +34,7 @@
   },
   {
     "id": 4,
+    "ticketNumber": 4,
     "customer": "Delta Systems",
     "subject": "Billing discrepancy in last invoice",
     "description": "Customer reported being charged twice for the same billing cycle. Needs finance review.",
@@ -41,6 +45,7 @@
   },
   {
     "id": 5,
+    "ticketNumber": 5,
     "customer": "Nova Retail",
     "subject": "Feature request: Dark mode support",
     "description": "Customer requested an optional dark theme for better usability during night shifts.",
@@ -51,6 +56,7 @@
   },
   {
     "id": 6,
+    "ticketNumber": 6,
     "customer": "Zenith Labs",
     "subject": "Dashboard widgets not loading",
     "description": "Widgets on the dashboard fail to load after recent update. JS console shows network timeout errors.",
@@ -61,6 +67,7 @@
   },
   {
     "id": 7,
+    "ticketNumber": 7,
     "customer": "Pioneer Data",
     "subject": "Email notifications not being sent",
     "description": "Some users are not receiving automated ticket updates. Possible issue with email queueing system.",
@@ -71,6 +78,7 @@
   },
   {
     "id": 8,
+    "ticketNumber": 8,
     "customer": "Horizon Media",
     "subject": "User role permissions not applying",
     "description": "After updating roles, users still have old access levels. Role sync function may be failing.",
@@ -81,6 +89,7 @@
   },
   {
     "id": 9,
+    "ticketNumber": 9,
     "customer": "Vertex Health",
     "subject": "Slow response times on mobile app",
     "description": "Mobile app response times exceed 5 seconds during peak hours. Needs backend performance review.",
@@ -91,6 +100,7 @@
   },
   {
     "id": 10,
+    "ticketNumber": 10,
     "customer": "Atlas Logistics",
     "subject": "Error when exporting reports to CSV",
     "description": "Exported CSV files are empty even though reports contain data. Likely due to new file writer update.",
@@ -101,6 +111,7 @@
   },
   {
     "id": 11,
+    "ticketNumber": 11,
     "customer": "Collicare Solutions",
     "subject": "Slow response time on computers",
     "description": "Test",
@@ -110,23 +121,13 @@
     "timestamp": "2026-05-18T09:00:28.714Z"
   },
   {
-    "id": 13,
-    "customer": "Test Testesen",
-    "subject": "Test",
-    "description": "Tester",
+    "id": 1779346107540,
+    "ticketNumber": 12,
+    "customer": "meg",
+    "subject": "teste intern id",
+    "description": "bare teste",
     "status": "Open",
     "priority": "Low",
-    "assignee": "Unassigned",
-    "timestamp": "2026-05-20T08:40:53.262Z"
-  },
-  {
-    "id": 14,
-    "customer": "Tester",
-    "subject": "Tester",
-    "description": "Tester",
-    "status": "Tester",
-    "priority": "Tester",
-    "assignee": "Unassigned",
-    "timestamp": "2026-05-20T09:18:42.699Z"
+    "timestamp": "2026-05-21T06:48:27.540Z"
   }
 ]

@@ -45,7 +45,7 @@ const priorityClass = (priority) => {
             </thead>
             <tbody>
                 <tr v-for="ticket in tickets" :key="ticket.id">
-                    <td>{{ ticket.id }}</td>
+                    <td>{{ ticket.ticketNumber }}</td>
                     <td>
                       <span :class="['badge', priorityClass(ticket.priority)]">
                           {{ ticket.priority }}

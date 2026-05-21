@@ -37,7 +37,7 @@ const submitTicket = async () => {
 
 
 <template>
-
+  <h2 class="table-title">Support tickets</h2>
   <input
     v-model="subject"
     placeholder="Subject"
