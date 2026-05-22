@@ -1,8 +1,7 @@
 <script setup>
-import { userProfile, supportTickets } from '../data/supportData.js';
+import { userProfile } from '../data/supportData.js';
 
 console.log(userProfile)
-console.log(supportTickets)
 </script>
 
 <template>

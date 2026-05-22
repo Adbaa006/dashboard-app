@@ -1,6 +1,4 @@
 <script setup>
-import { supportTickets } from '../data/supportData.js'
-
 const formatDate = (timestamp) => {
   return new Date(timestamp).toLocaleString('en-US', {
     dateStyle: 'medium',

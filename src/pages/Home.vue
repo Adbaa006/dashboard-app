@@ -1,5 +1,5 @@
 <script setup>
-import { userProfile, supportTickets } from '../data/supportData.js';
+import { userProfile } from '../data/supportData.js';
 import PreviewTable from '@/components/PreviewTable.vue';
 import TempChart from '@/components/TempChart.vue';
 
