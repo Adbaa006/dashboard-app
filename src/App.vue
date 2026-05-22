@@ -1,7 +1,7 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
 import Menu from './components/Menu.vue'
-import Footer from './components/footer.vue'
+import Footer from './components/Footer.vue'
 </script>
 
 <template>

@@ -73,3 +73,7 @@ const submitTicket = async () => {
   </button>
 
 </template>
+
+<style>
+
+</style>
