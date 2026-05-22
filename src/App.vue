@@ -1,7 +1,7 @@
 <script setup>
-import Navbar from './components/Navbar.vue'
-import Menu from './components/Menu.vue'
-import Footer from './components/Footer.vue'
+import Navbar from './components/Navbar.vue';
+import Menu from './components/Menu.vue';
+import Signering from './components/Signering.vue';
 </script>
 
 <template>
@@ -13,6 +13,6 @@ import Footer from './components/Footer.vue'
       <router-view />
     </main>
 
-    <footer class="footer"><Footer /></footer>
+    <footer class="footer"><Signering /></footer>
   </div>
 </template>
