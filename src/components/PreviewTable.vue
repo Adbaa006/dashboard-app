@@ -1,8 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
-
-const emit = defineEmits(['select-ticket'])
-const filter = ref('All')
+import { computed } from 'vue'
 
 const props = defineProps({
   tickets: {
@@ -30,7 +27,9 @@ const priorityClass = (priority) => {
   }
 }
 
-const tickets = props.tickets.filter(ticket => ticket.priority === 'High')
+const highPriorityTickets = computed(() =>
+  props.tickets.filter(t => t.priority === 'High')
+)
 </script>
 
 <template>
@@ -47,7 +46,7 @@ const tickets = props.tickets.filter(ticket => ticket.priority === 'High')
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="ticket in tickets" :key="ticket.id">
+                <tr v-for="ticket in highPriorityTickets" :key="ticket.id">
                     <td>{{ ticket.ticketNumber }}</td>
                     <td>
                         <span :class="['badge', priorityClass(ticket.priority)]">
@@ -56,9 +55,11 @@ const tickets = props.tickets.filter(ticket => ticket.priority === 'High')
                     </td>
                     <td>{{ ticket.customer }}</td>
                     <td>{{ ticket.subject }}</td>
-                    <span :class="['badge', statusClass(ticket.status)]">
-                      {{ ticket.status }}
-                    </span>
+                    <td>
+                      <span :class="['badge', statusClass(ticket.status)]">
+                        {{ ticket.status }}
+                      </span>
+                    </td>
                 </tr>
             </tbody>
         </table>

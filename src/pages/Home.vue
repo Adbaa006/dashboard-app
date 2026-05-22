@@ -1,10 +1,18 @@
 <script setup>
+import { ref, onMounted } from 'vue'
 import { userProfile } from '../data/supportData.js';
 import PreviewTable from '@/components/PreviewTable.vue';
 import TempChart from '@/components/TempChart.vue';
 
+
+const tickets = ref([])
+
+onMounted(async () => {
+  const res = await fetch('/data/tickets.json')
+  tickets.value = await res.json()
+})
+
 console.log(userProfile)
-console.log(supportTickets)
 </script>
 
 <template>
@@ -15,7 +23,7 @@ console.log(supportTickets)
     </header>
     <TempChart />
     <div class="feilmeldinger">
-      <PreviewTable />
+      <PreviewTable :tickets="tickets" />
     </div>
   </main>
 </template>
