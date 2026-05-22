@@ -1,8 +1,8 @@
 <script setup>
-import { supportTickets } from '../data/supportData.js'
 import { ref, computed } from 'vue'
 
-const tickets = supportTickets.filter(ticket => ticket.priority === 'High')
+const emit = defineEmits(['select-ticket'])
+const filter = ref('All')
 
 const props = defineProps({
   tickets: {
@@ -10,13 +10,6 @@ const props = defineProps({
     default: () => []
   }
 })
-
-const formatDate = (timestamp) => {
-  return new Date(timestamp).toLocaleString('en-US', {
-    dateStyle: 'medium',
-    timeStyle: 'short'
-  })
-}
 
 const statusClass = (status) => {
   switch (status) {
@@ -36,6 +29,8 @@ const priorityClass = (priority) => {
     default: return ''
   }
 }
+
+const tickets = props.tickets.filter(ticket => ticket.priority === 'High')
 </script>
 
 <template>
