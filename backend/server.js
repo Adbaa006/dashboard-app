@@ -1,7 +1,7 @@
+const path = require('path')
 const express = require('express')
 const cors = require('cors')
 const fs = require('fs-extra')
-const path = require('path')
 
 const app = express()
 
@@ -11,46 +11,51 @@ app.use(cors())
 app.use(express.json())
 
 
-const DATA_FILE = path.join(__dirname, 'data', 'tickets.json')
+const ticketsFile = path.join(__dirname, 'data', 'tickets.json')
 
 
 // HENT DATA
 
-async function readTickets() {
-
-  const data = await fs.readJson(DATA_FILE)
-
-  return data
+function readTickets() {
+  const data = fs.readFileSync(ticketsFile, 'utf8')
+  return JSON.parse(data)
 }
 
 
 // LAGRE DATA
 
-async function saveTickets(tickets) {
-
-  await fs.writeJson(DATA_FILE, tickets, { spaces: 2 })
+function saveTickets(tickets) {
+  fs.writeFileSync(
+    ticketsFile,
+    JSON.stringify(tickets, null, 2)
+  )
 }
 
 
 // HENTE ALT
 
-app.get('/tickets', async (req, res) => {
+app.get('/tickets', (req, res) => {
 
-  const tickets = await readTickets()
-
+  const tickets = readTickets()
   res.json(tickets)
 })
 
 
 // HENTE ENKEL
 
-app.get('/tickets/:id', async (req, res) => {
+app.get('/tickets/:id', (req, res) => {
 
-  const tickets = await readTickets()
+  const tickets = readTickets()
 
   const ticket = tickets.find(
-    t => t.id === Number(req.params.id)
+    t => t.id == (req.params.id)
   )
+
+  if (!ticket) {
+    return res.status(404) .json({
+      message: 'Ticket not found'
+    })
+  }
 
   res.json(ticket)
 })
@@ -58,9 +63,9 @@ app.get('/tickets/:id', async (req, res) => {
 
 // LAG NY
 
-app.post('/tickets', async (req, res) => {
+app.post('/tickets', (req, res) => {
 
-  const tickets = await readTickets()
+  const tickets = readTickets()
 
   const nextTicketNumber = tickets.length + 1
 
@@ -86,7 +91,7 @@ app.post('/tickets', async (req, res) => {
 
   tickets.push(newTicket)
 
-  await saveTickets(tickets)
+  saveTickets(tickets)
 
   res.status(201).json(newTicket)
 })
@@ -94,12 +99,12 @@ app.post('/tickets', async (req, res) => {
 
 // OPPDATER
 
-app.put('/tickets/:id', async (req, res) => {
+app.put('/tickets/:id', (req, res) => {
 
-  const tickets = await readTickets()
+  const tickets = readTickets()
 
   const index = tickets.findIndex(
-    t => t.id === Number(req.params.id)
+    t => t.id == (req.params.id)
   )
 
   if (index === -1) {
@@ -113,7 +118,7 @@ app.put('/tickets/:id', async (req, res) => {
     ...req.body
   }
 
-  await saveTickets(tickets)
+  saveTickets(tickets)
 
   res.json(tickets[index])
 })
@@ -121,19 +126,19 @@ app.put('/tickets/:id', async (req, res) => {
 
 // SLETT
 
-app.delete('/tickets/:id', async (req, res) => {
+app.delete('/tickets/:id', (req, res) => {
 
-  const tickets = await readTickets()
+  const tickets = readTickets()
 
 
-  const filtered = tickets.filter(
-    t => t.id !== Number(req.params.id)
+  const filteredTickets = tickets.filter(
+    t => t.id != (req.params.id)
   )
 
 
   // Gi nytt nummer til gjenværende tickets
 
-  const updatedTickets = filtered.map((ticket, index) => ({
+  const filteredTicketsTickets = filtered.map((ticket, index) => ({
 
     ...ticket,
 
@@ -141,7 +146,7 @@ app.delete('/tickets/:id', async (req, res) => {
   }))
 
 
-  await saveTickets(updatedTickets)
+  saveTickets(filteredTickets)
 
 
   res.json({
@@ -149,7 +154,20 @@ app.delete('/tickets/:id', async (req, res) => {
   })
 })
 
+// Vise frontend
+
+app.use(
+  express.static(
+    path.join(__dirname, '../dist')
+  )
+)
+// Vue Router support
+app.get('*', (reg, res) => [
+  res.sendFile(
+    path.join(__dirname, '../dist/index.html')
+  )
+])
 
 app.listen(PORT, () => {
-  console.log(`API running on http://localhost:${PORT}`)
+  console.log('Server running on port ${PORT}')
 })
