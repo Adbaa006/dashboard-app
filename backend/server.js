@@ -130,44 +130,51 @@ app.delete('/tickets/:id', (req, res) => {
 
   const tickets = readTickets()
 
-
   const filteredTickets = tickets.filter(
-    t => t.id != (req.params.id)
+    t => t.id != req.params.id
   )
 
-
-  // Gi nytt nummer til gjenværende tickets
-
-  const filteredTicketsTickets = filtered.map((ticket, index) => ({
+  // Gi nye ticketnummer
+  const updatedTickets = filteredTickets.map((ticket, index) => ({
 
     ...ticket,
 
     ticketNumber: index + 1
   }))
 
-
-  saveTickets(filteredTickets)
-
+  saveTickets(updatedTickets)
 
   res.json({
     message: 'Ticket deleted'
   })
 })
 
-// Vise frontend
+
+//
+// SERVE FRONTEND
+//
 
 app.use(
   express.static(
     path.join(__dirname, '../dist')
   )
 )
+
+
 // Vue Router support
-app.get(/.*/, (reg, res) => [
+app.get(/.*/, (req, res) => {
+
   res.sendFile(
     path.join(__dirname, '../dist/index.html')
   )
-])
+})
+
+
+//
+// START SERVER
+//
 
 app.listen(PORT, () => {
-  console.log('Server running on port ${PORT}')
+
+  console.log(`Server running on port ${PORT}`)
 })
