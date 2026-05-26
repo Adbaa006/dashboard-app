@@ -1,7 +1,6 @@
 <script setup>
 import { userProfile } from '../data/supportData';
 
-console.log(userProfile)
 </script>
 
 <template>
