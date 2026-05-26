@@ -2,7 +2,6 @@
 import { userProfile } from '../data/supportData';
 
 console.log(userProfile)
-console.log(supportTickets)
 </script>
 
 <template>
