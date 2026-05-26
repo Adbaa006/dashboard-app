@@ -38,42 +38,53 @@ const submitTicket = async () => {
 
 <template>
   <h2 class="table-title">Support tickets</h2>
-  <input
-    v-model="subject"
-    placeholder="Subject"
-  />
+  <div class="lageTicket">
+    <input
+      v-model="subject"
+      placeholder="Subject"
+    />
 
-  <input
-    v-model="customer"
-    placeholder="Customer"
-  />
+    <input
+      v-model="customer"
+      placeholder="Customer"
+    />
 
-  <input 
-    v-model="description"
-    placeholder="Description"
-  />
+    <input 
+      v-model="description"
+      placeholder="Description"
+    />
 
-  <input 
-    v-model="assigned"
-    placeholder="Assigned"
-  />
+    <input 
+      v-model="assigned"
+      placeholder="Assigned"
+    />
 
-  <input 
-    v-model="status"
-    placeholder="Status"
-  />
+    <input 
+      v-model="status"
+      placeholder="Status"
+    />
 
-  <input 
-    v-model="priority"
-    placeholder="Priority"
-  />
-
+    <input 
+      v-model="priority"
+      placeholder="Priority"
+    />
+  </div>
   <button @click="submitTicket">
     Create
   </button>
+  
 
 </template>
 
-<style>
-
+<style scoped>
+.lageTicket {
+  display: flex;
+  flex-direction: row;
+}
+input {
+  width: 5rem;
+}
+button {
+  width: 5rem;
+}
 </style>
