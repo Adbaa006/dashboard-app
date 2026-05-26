@@ -3,7 +3,6 @@ const express = require('express')
 const cors = require('cors')
 const fs = require('fs-extra')
 
-console.log(__dirname)
 const app = express()
 
 const PORT = 3000
@@ -13,6 +12,8 @@ app.use(express.json())
 
 
 const ticketsFile = path.join(__dirname, 'data', 'tickets.json')
+
+console.log(__dirname)
 
 // HENT DATA
 
@@ -174,7 +175,7 @@ app.get(/.*/, (req, res) => {
 // START SERVER
 //
 
-app.listen(PORT, () => {
+app.listen(3000, "0.0.0.0", () => {
 
-  console.log(`Server running on port ${PORT}`)
+  console.log(`Server running on port 3000`)
 })
