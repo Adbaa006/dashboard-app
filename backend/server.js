@@ -3,6 +3,7 @@ const express = require('express')
 const cors = require('cors')
 const fs = require('fs-extra')
 
+console.log(__dirname)
 const app = express()
 
 const PORT = 3000
@@ -12,7 +13,6 @@ app.use(express.json())
 
 
 const ticketsFile = path.join(__dirname, 'data', 'tickets.json')
-
 
 // HENT DATA
 
