@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/tickets'
+const API_URL = '/tickets'
 
 
 export async function getTickets() {
@@ -28,7 +28,7 @@ export async function createTicket(ticket) {
 export async function getTicket(id) {
 
   const response = await fetch(
-    `http://localhost:3000/tickets/${id}`
+    `/tickets/${id}`
   )
 
   return await response.json()
@@ -37,7 +37,7 @@ export async function getTicket(id) {
 export async function deleteTicket(id) {
 
   const response = await fetch(
-    `http://localhost:3000/tickets/${id}`,
+    `/tickets/${id}`,
     {
       method: 'DELETE'
     }
