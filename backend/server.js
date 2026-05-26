@@ -162,7 +162,7 @@ app.use(
   )
 )
 // Vue Router support
-app.get('*', (reg, res) => [
+app.get(/.*/, (reg, res) => [
   res.sendFile(
     path.join(__dirname, '../dist/index.html')
   )
