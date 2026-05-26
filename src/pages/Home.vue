@@ -3,15 +3,14 @@ import { ref, onMounted } from 'vue'
 import { userProfile } from '../data/supportData.js';
 import PreviewTable from '@/components/PreviewTable.vue';
 import TempChart from '@/components/TempChart.vue';
+import { getTickets } from '@/services/api.js';
 
 
 const tickets = ref([])
 
 onMounted(async () => {
-  const res = await fetch('/data/tickets.json')
-  tickets.value = await res.json()
+  tickets.value = await getTickets()
 })
-
 console.log(userProfile)
 </script>
 
