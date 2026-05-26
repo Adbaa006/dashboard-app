@@ -77,6 +77,9 @@ const submitTicket = async () => {
 </template>
 
 <style scoped>
+* {
+  outline: 5px solid red;
+}
 .lageTicket {
   display: flex;
   flex-direction: row;
