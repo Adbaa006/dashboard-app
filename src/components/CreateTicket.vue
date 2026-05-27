@@ -89,6 +89,7 @@ const submitTicket = async () => {
   flex-direction: row;
   width: 30rem;
   gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 .input1 input,
 .input4 input {
@@ -101,6 +102,8 @@ const submitTicket = async () => {
 .input2 {
   width: 30rem;
   height: 5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .input2 textarea {
   width: 100%;
@@ -112,6 +115,8 @@ const submitTicket = async () => {
 }
 .input3 {
   width: 30rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .input3 input {
   height: 100%;
@@ -121,5 +126,6 @@ const submitTicket = async () => {
 }
 button {
   width: 10rem;
+  margin-bottom: 1rem;
 }
 </style>
