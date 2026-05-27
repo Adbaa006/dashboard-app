@@ -9,7 +9,6 @@ import {
   getTickets,
   createTicket
 } from '@/services/api'
-import CreateTicket from '@/components/CreateTicket.vue'
 
 
 const tickets = ref([])
