@@ -9,7 +9,7 @@ const emit = defineEmits([
 const subject = ref('')
 const customer = ref('')
 const description = ref('')
-const assigned = ref('')
+const assignee = ref('')
 const status = ref('')
 const priority = ref('')
 
@@ -24,7 +24,7 @@ const submitTicket = async () => {
 
     description: description.value,
 
-    assigned: assigned.value,
+    assignee: assignee.value,
 
     status: status.value,
 
@@ -56,8 +56,8 @@ const submitTicket = async () => {
       />
     </div>
     <div class="input3">
-      <select v-model="assigned">
-        <option disabled value="">Assigned</option>
+      <select v-model="assignee">
+        <option disabled value="">Assignee</option>
         <option>Jordan Reed</option>
         <option>Taylor Morgan</option>
         <option>Alex Chen</option>
