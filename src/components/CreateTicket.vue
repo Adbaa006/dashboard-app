@@ -50,7 +50,7 @@ const submitTicket = async () => {
       />
     </div>
     <div class="input2">
-      <input 
+      <textarea
         v-model="description"
         placeholder="Description"
       />
@@ -87,21 +87,37 @@ const submitTicket = async () => {
 .input4 {
   display: flex;
   flex-direction: row;
-  width: 15rem;
+  width: 30rem;
+  gap: 1rem;
+}
+.input1 input,
+.input4 input {
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+  padding: 0.75rem;
+  box-sizing: border-box;
 }
 .input2 {
   width: 30rem;
   height: 5rem;
 }
+.input2 textarea {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  resize: none;
+  vertical-align: top;
+}
 .input3 {
   width: 30rem;
 }
-.input1 input,
-.input2 input,
-.input3 input,
-.input4 input {
+.input3 input {
   height: 100%;
   width: 100%;
+  padding: 0.75rem;
+  box-sizing: border-box;
 }
 button {
   width: 10rem;
