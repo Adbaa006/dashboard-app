@@ -61,7 +61,7 @@ const submitTicket = async () => {
         placeholder="Assigned"
       />
     </div>
-    <div class="input1">
+    <div class="input4">
       <input 
         v-model="status"
         placeholder="Status"
@@ -83,7 +83,8 @@ const submitTicket = async () => {
   display: flex;
   flex-direction: column;
 }
-.input1 {
+.input1,
+.input4 {
   display: flex;
   flex-direction: row;
   width: 15rem;
@@ -97,7 +98,8 @@ const submitTicket = async () => {
 }
 .input1 input,
 .input2 input,
-.input3 input {
+.input3 input,
+.input4 input {
   height: 100%;
   width: 100%;
 }
