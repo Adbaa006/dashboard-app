@@ -56,20 +56,27 @@ const submitTicket = async () => {
       />
     </div>
     <div class="input3">
-      <input 
-        v-model="assigned"
-        placeholder="Assigned"
-      />
+      <select v-model="assigned">
+        <option disabled value="">Assigned</option>
+        <option>Jordan Reed</option>
+        <option>Taylor Morgan</option>
+        <option>Alex Chen</option>
+      </select>
     </div>
     <div class="input4">
-      <input 
-        v-model="status"
-        placeholder="Status"
-      />
-      <input 
-        v-model="priority"
-        placeholder="Priority"
-      />
+      <select v-model="status">
+        <option disabled value="">Status</option>
+        <option>Open</option>
+        <option>In progress</option>
+        <option>Resolved</option>
+        <option>Closed</option>
+      </select>
+      <select v-model="priority">
+        <option disabled value="">Priority</option>
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+      </select>
     </div>
   </div>
   <button @click="submitTicket">
@@ -92,8 +99,15 @@ const submitTicket = async () => {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-.input1 input,
-.input4 input {
+.input1 input {
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+.input4 select {
   flex: 1;
   height: 100%;
   min-width: 0;
@@ -122,7 +136,7 @@ const submitTicket = async () => {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-.input3 input {
+.input3 select {
   height: 100%;
   width: 100%;
   padding: 0.75rem;
