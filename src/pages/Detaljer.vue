@@ -103,6 +103,7 @@ const saveChanges = async () => {
         <select v-model="editForm.status">
           <option>Open</option>
           <option>In progress</option>
+          <option>Resolved</option>
           <option>Closed</option>
         </select>
 
@@ -113,13 +114,13 @@ const saveChanges = async () => {
         </select>
 
         <select v-model="editForm.assignee">
-          <option>Ola</option>
-          <option>Kari</option>
-          <option>Ahmed</option>
+          <option>Jordan Reed</option>
+          <option>Taylor Morgan</option>
+          <option>Alex Chen</option>
         </select>
 
-        <button @click="saveChanges">Save</button>
-        <button @click="cancelEditing">Cancel</button>
+        <button class="saveChangeBtn" @click="saveChanges">Save</button>
+        <button class="cancelEditBtn" @click="cancelEditing">Cancel</button>
       </div>
     </div>
     <div class="bottom">
@@ -191,6 +192,7 @@ h1 {
   padding: 2rem;
   text-align: center;
 }
+.cancelEditBtn,
 .delete-btn {
   background: #d9534f;
   color: white;
@@ -200,6 +202,18 @@ h1 {
   cursor: pointer;
   margin: 20px;
 }
+.saveChangeBtn {
+  background: rgb(41, 182, 41);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 20px;
+}
+.saveChangeBtn:hover,
+.cancelEditBtn:hover,
+.edit-btn:hover,
 .delete-btn:hover {
   opacity: 0.9;
 }
@@ -219,7 +233,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 30rem;
+  max-width: 50rem;
   padding: 1rem;
 }
 
