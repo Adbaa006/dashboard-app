@@ -89,6 +89,8 @@ const submitTicket = async () => {
 .lageTicket {
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .input1,
 .input4 {
