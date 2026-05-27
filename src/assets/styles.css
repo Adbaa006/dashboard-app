@@ -127,13 +127,3 @@ a:hover {
   padding-left: 2rem;
   gap: 3rem;
 }
-.lageTicket {
-  display: flex;
-  flex-direction: row;
-}
-input {
-  width: 5rem;
-}
-button {
-  width: 5rem;
-}
