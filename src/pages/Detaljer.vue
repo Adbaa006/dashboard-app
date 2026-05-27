@@ -1,19 +1,27 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { getTicket, deleteTicket, updateTicket } from '@/services/api'
 
 const route = useRoute()
+const router = useRouter()
 
 const ticket = ref(null)
+const isEditing = ref(false)
 
+const editForm = ref({
+  subject: '',
+  customer: '',
+  description: '',
+  assignee: '',
+  status: '',
+  priority: ''
+})
 
 onMounted(async () => {
 
-  ticket.value = await getTicket(
-    route.params.id
-  )
-
+  ticket.value = await getTicket(route.params.id)
+  editForm.value = { ...ticket.value}
   console.log(ticket.value)
 })
 
@@ -47,6 +55,22 @@ const removeTicket = async () => {
 
   router.push('/support')
 }
+
+const startEditing = () => {
+  editForm.value = { ...ticket.value}
+  isEditing.value = true
+}
+
+const cancelEditing = () => {
+  isEditing.value = false
+}
+
+const saveChanges = async () => {
+  ticket.value = await updateTicket(ticket.value.id, editForm.value)
+  isEditing.value = false
+  alert('Ticket updated')
+}
+
 </script>
 
 <template>

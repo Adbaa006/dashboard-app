@@ -145,6 +145,9 @@ const submitTicket = async () => {
   box-sizing: border-box;
   border-radius: 6px;
 }
+.placeholder {
+  color: black;
+}
 button {
   width: 10rem;
   background-color: #22c55e;
