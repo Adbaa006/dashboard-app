@@ -87,16 +87,16 @@ const submitTicket = async () => {
 .input1 {
   display: flex;
   flex-direction: row;
-  width: 10rem;
+  width: 15rem;
 }
 .input2 {
-  width: 10rem;
+  width: 30rem;
   height: 5rem;
 }
 .input3 {
-  width: 10rem;
+  width: 30rem;
 }
 button {
-  width: 5rem;
+  width: 10rem;
 }
 </style>
