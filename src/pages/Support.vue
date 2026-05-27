@@ -9,6 +9,7 @@ import {
   getTickets,
   createTicket
 } from '@/services/api'
+import CreateTicket from '@/components/CreateTicket.vue'
 
 
 const tickets = ref([])
@@ -38,13 +39,15 @@ const openTicket = (id) => {
 
 
 <template>
-  <CompleteTable
-  :tickets="tickets"
-  @select-ticket="openTicket"
-  
+
   <CreateTicket
     @create-ticket="handleCreateTicket"
   />
+
+  <CompleteTable
+  :tickets="tickets"
+  @select-ticket="openTicket"
+
 />
 
 </template>
