@@ -38,14 +38,13 @@ const openTicket = (id) => {
 
 
 <template>
-
-  <CreateTicket
-    @create-ticket="handleCreateTicket"
-  />
-
   <CompleteTable
   :tickets="tickets"
   @select-ticket="openTicket"
+  
+  <CreateTicket
+    @create-ticket="handleCreateTicket"
+  />
 />
 
 </template>

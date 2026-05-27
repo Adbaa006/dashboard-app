@@ -89,6 +89,7 @@ const submitTicket = async () => {
   flex-direction: row;
   width: 30rem;
   gap: 1rem;
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 .input1 input,
@@ -126,6 +127,8 @@ const submitTicket = async () => {
 }
 button {
   width: 10rem;
+  background-color: #22c55e;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
 }
 </style>
