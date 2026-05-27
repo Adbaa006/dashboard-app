@@ -241,7 +241,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 50rem;
+  width: 40rem;
   padding: 1rem;
 }
 
