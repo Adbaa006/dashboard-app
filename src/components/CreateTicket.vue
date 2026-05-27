@@ -95,7 +95,9 @@ const submitTicket = async () => {
 .input3 {
   width: 30rem;
 }
-input {
+.input1 input,
+.input2 input,
+.input3 input {
   height: 100%;
   width: 100%;
 }
