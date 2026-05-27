@@ -66,7 +66,6 @@ const submitTicket = async () => {
         v-model="status"
         placeholder="Status"
       />
-
       <input 
         v-model="priority"
         placeholder="Priority"
@@ -95,6 +94,10 @@ const submitTicket = async () => {
 }
 .input3 {
   width: 30rem;
+}
+input {
+  height: 100%;
+  width: 100%;
 }
 button {
   width: 10rem;
