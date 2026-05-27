@@ -87,7 +87,7 @@ const submitTicket = async () => {
 .input4 {
   display: flex;
   flex-direction: row;
-  width: 30rem;
+  width: 40rem;
   gap: 1rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -102,7 +102,7 @@ const submitTicket = async () => {
   border-radius: 6px;
 }
 .input2 {
-  width: 30rem;
+  width: 40rem;
   height: 5rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -118,7 +118,7 @@ const submitTicket = async () => {
   border-radius: 6px;
 }
 .input3 {
-  width: 30rem;
+  width: 40rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
