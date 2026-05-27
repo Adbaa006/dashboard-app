@@ -192,7 +192,15 @@ h1 {
   padding: 2rem;
   text-align: center;
 }
-.cancelEditBtn,
+.cancelEditBtn {
+  width: 5rem;
+  height: 2rem;
+  background: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
 .delete-btn {
   background: #d9534f;
   color: white;
@@ -203,13 +211,13 @@ h1 {
   margin: 20px;
 }
 .saveChangeBtn {
+  width: 5rem;
+  height: 2rem;
   background: rgb(41, 182, 41);
   color: white;
   border: none;
-  padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
-  margin: 20px;
 }
 .saveChangeBtn:hover,
 .cancelEditBtn:hover,
@@ -233,7 +241,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 50rem;
+  width: 50rem;
   padding: 1rem;
 }
 
