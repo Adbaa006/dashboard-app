@@ -196,14 +196,14 @@ h1 {
   width: 5rem;
   height: 2rem;
   background: #d9534f;
-  color: white;
+  color: black;
   border: none;
   border-radius: 8px;
   cursor: pointer;
 }
 .delete-btn {
   background: #d9534f;
-  color: white;
+  color: black;
   border: none;
   padding: 10px 16px;
   border-radius: 8px;
@@ -214,7 +214,7 @@ h1 {
   width: 5rem;
   height: 2rem;
   background: rgb(41, 182, 41);
-  color: white;
+  color: black;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -260,7 +260,7 @@ h1 {
 
 .edit-btn {
   background: #3b82f6;
-  color: white;
+  color: black;
   border: none;
   padding: 10px 16px;
   border-radius: 8px;
