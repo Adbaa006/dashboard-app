@@ -3,7 +3,7 @@ const API_URL = '/tickets'
 
 export async function getTickets() {
 
-  const response = await fetch(API_URL)
+  const response = await fetch(`/tickets/${id}`)
 
   return await response.json()
 }
@@ -11,7 +11,7 @@ export async function getTickets() {
 
 export async function createTicket(ticket) {
 
-  const response = await fetch(API_URL, {
+  const response = await fetch(`/tickets/${id}`, {
 
     method: 'POST',
 
@@ -42,6 +42,18 @@ export async function deleteTicket(id) {
       method: 'DELETE'
     }
   )
+
+  return await response.json()
+}
+
+export async function updateTicket(id, updatedTicket) {
+  const response = await fetch(` /tickets/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(updatedTicket)
+  })
 
   return await response.json()
 }

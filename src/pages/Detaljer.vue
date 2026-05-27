@@ -1,8 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { getTicket } from '@/services/api'
-import { deleteTicket } from '@/services/api'
+import { getTicket, deleteTicket, updateTicket } from '@/services/api'
 
 const route = useRoute()
 
