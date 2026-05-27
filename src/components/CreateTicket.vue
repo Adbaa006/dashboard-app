@@ -99,12 +99,14 @@ const submitTicket = async () => {
   min-width: 0;
   padding: 0.75rem;
   box-sizing: border-box;
+  border-radius: 6px;
 }
 .input2 {
   width: 30rem;
   height: 5rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+
 }
 .input2 textarea {
   width: 100%;
@@ -113,6 +115,7 @@ const submitTicket = async () => {
   padding: 0.75rem;
   resize: none;
   vertical-align: top;
+  border-radius: 6px;
 }
 .input3 {
   width: 30rem;
@@ -124,11 +127,13 @@ const submitTicket = async () => {
   width: 100%;
   padding: 0.75rem;
   box-sizing: border-box;
+  border-radius: 6px;
 }
 button {
   width: 10rem;
   background-color: #22c55e;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+  border-radius: 6px;
 }
 </style>
