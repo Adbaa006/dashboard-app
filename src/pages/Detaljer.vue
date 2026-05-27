@@ -102,7 +102,7 @@ const saveChanges = async () => {
 
         <select v-model="editForm.status">
           <option>Open</option>
-          <option>In progress</option>
+          <option>In Progress</option>
           <option>Resolved</option>
           <option>Closed</option>
         </select>

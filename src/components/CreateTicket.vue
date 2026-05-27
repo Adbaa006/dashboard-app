@@ -67,7 +67,7 @@ const submitTicket = async () => {
       <select v-model="status">
         <option disabled value="">Status</option>
         <option>Open</option>
-        <option>In progress</option>
+        <option>In Progress</option>
         <option>Resolved</option>
         <option>Closed</option>
       </select>
