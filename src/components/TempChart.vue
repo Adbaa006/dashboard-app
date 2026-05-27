@@ -59,7 +59,7 @@ img {
     max-width: 2rem;
 }
 h2 {
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 100;
   color: whitesmoke;
 }

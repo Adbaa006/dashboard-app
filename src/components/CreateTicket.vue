@@ -158,4 +158,7 @@ button {
   border-radius: 6px;
   border: none;
 }
+button:hover {
+  cursor: pointer;
+}
 </style>
