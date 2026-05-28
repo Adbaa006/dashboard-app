@@ -1,13 +1,24 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { supportTickets } from '@/data/supportData'
 
 const emit = defineEmits(['select-ticket'])
 const filter = ref('All')
 
+const props = defineProps({
+  rickets: {
+    type: Array,
+    default: () => []
+  }
+})
+
 const filteredTickets = computed(() => {
-  if (filter.value === 'All') return supportTickets
-  return supportTickets.filter(t => t.status === filter.value)
+  if (filter.value === 'All') {
+    return props.tickets
+  }
+  
+  return props.tickets.filter(
+    t => t.status === filter.value
+  )
 })
 
 const selectTicket = (id) => {

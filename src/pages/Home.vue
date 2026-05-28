@@ -1,9 +1,17 @@
 <script setup>
-import FilterTable from '@/components/FilterTable.vue';
-import { userProfile, supportTickets } from '@/data/supportData';
+import { ref, onMounted } from 'vue';
+import { userProfile } from '@/data/supportData';
+import PreviewTable from '@/components/PreviewTable.vue';
+import TempChart from '@/components/TempChart.vue';
+import { getTickets } from '@/services/api';
+
+const tickets = ref([])
+
+onMounted(async () => {
+  tickets.value = await getTickets()
+})
 
 console.log(userProfile)
-console.log(supportTickets)
 </script>
 
 <template>
@@ -12,9 +20,9 @@ console.log(supportTickets)
       <h1>Welcome, {{ userProfile.firstName }}</h1>
       <p>Role: {{ userProfile.role }}</p>
     </header>
-    <statChart />
+    <TempChart />
     <div class="feilmeldinger">
-      <ForhondsvisningTabel />
+      <PreviewTable :tickets="tickets" />
     </div>
   </main>
 </template>

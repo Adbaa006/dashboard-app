@@ -1,13 +1,25 @@
 <script setup>
-import { useRoute } from 'vue-router'
-import { computed } from 'vue';
-import { supportTickets } from '@/data/supportData';
+import { useRoute, useRouter } from 'vue-router'
+import { ref, onMounted } from 'vue';
+import { getTicket, updateTicket } from '@/services/api';
 
 const route = useRoute()
+const router = useRouter()
+const ticket = ref(null)
+const isEditing = ref(false)
 
-const ticket = computed(() => {
-  const id = Number(route.params.id)
-  return supportTickets.find(t => t.id === id)
+const editForm = ref({
+  subject: '',
+  customer: '',
+  description: '',
+  status: '',
+  priority: '',
+})
+
+onMounted(async () => {
+  ticket.value = await getTicket(route.params.id)
+  editForm.value = { ...ticket.value}
+  console.log(ticket.value)
 })
 
 const formatDate = (timestamp) => {
@@ -17,11 +29,41 @@ const formatDate = (timestamp) => {
   })
 }
 
-console.log('route id:', route.params.id)
-console.log('tickets ids:', supportTickets.map(t => t.id))
-console.log('Route params:', route.params)
-console.log('Parsed id:', parseInt(route.params.id))
-console.log('Matching ticket:', supportTickets.find(t => t.id === parseInt(route.params.id)))
+const startEditing = () => {
+  editForm.value = { ...ticket.value}
+  isEditing.value = true
+}
+
+const cancelEditing = () => {
+  isEditing.value = false
+}
+
+const saveChanges = async () => {
+  ticket.value = await updateTicket(ticket.value.id, editForm.value)
+  isEditing.value = false
+  alert('Ticket updated')
+}
+
+const removeTicket = async () => {
+
+  const firstConfirm = confirm(
+    'Are you sure you want to delete this ticket?'
+  )
+
+  if (!firstConfirm) return
+
+  const secondConfirm = confirm(
+    'This action can not be undone. Delete permanently'
+  )
+
+  if (!secondConfirm) return
+
+  await deleteTicket(ticket.value.id)
+
+  alert('Ticket deleted')
+
+  router.push('/support')
+}
 </script>
 
 <template>
@@ -31,18 +73,68 @@ console.log('Matching ticket:', supportTickets.find(t => t.id === parseInt(route
       <h3>{{ ticket.customer }}</h3>
     </div>
     <div class="ticket-details">
-      <div class="details">
-        <p><strong>Description</strong></p>
-        <p>{{ ticket.description }}</p>
+      <div v-if="!isEditing" class="ticket-details">
+        <div class="details">
+          <p><strong>Description</strong></p>
+          <p>{{ ticket.description }}</p>
+        </div>
+
+        <div class="more-details">
+          <p><strong>Status: </strong> {{ ticket.status }}</p>
+          <p><strong>Priority: </strong> {{ ticket.priority }}</p>
+          <p><strong>Assigned: </strong> {{ ticket.assignee }}</p>
+          <p><strong>Timestamp: </strong> {{ formatDate(ticket.timestamp) }}</p>
+        </div>
       </div>
-      <div class="more-details">
-        <p><strong>Status: </strong> {{ ticket.status }}</p>
-        <p><strong>Priority: </strong> {{ ticket.priority }}</p>
-        <p><strong>Assigned: </strong> {{ ticket.assignee }}</p>
-        <p><strong>Timestamp: </strong> {{ formatDate(ticket.timestamp) }}</p>
+      
+      <div v-else class="edit-form">
+        <input v-model="editForm.subject" placeholder="Subject">
+
+        <input v-model="editForm.customer" placeholder="Customer">
+
+        <textarea v-model="editForm.description" placeholder="Description"></textarea>
+
+        <select v-model="editForm.status" placeholder="Status">
+          <option>Open</option>
+          <option>In Progress</option>
+          <option>Resolved</option>
+          <option>Closed</option>
+        </select>
+
+        <select v-model="priority">
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+        </select>
+
+        <select v-model="assignee">
+          <option>Jordan Reed</option>
+          <option>Morgan Taylor</option>
+          <option>Alex Chen</option>
+        </select>
+
+        <button class="saveChangeBtn" @click="saveChanges">Save</button>
+        <button class="cancelEditBtn" @click="cancelEditing">Cancel</button>
       </div>
     </div>
-    <router-link to="/support" class="back-link"><p>Back to the menu</p></router-link>
+    <div class="bottom">
+      <div class="link">
+        <router-link to="/support" class="back-link"><p>Back to the menu</p></router-link>
+      </div>
+      <div class="buttons">
+        <button v-if="!isEditing"
+          class="edit-btn"
+          @click="startEditing">
+          <p>Edit ticket</p>
+        </button>
+        <button
+          class="delete-btn"
+          @click="removeTicket">
+          <p>Delete ticket</p>
+        </button>
+      </div>
+
+    </div>
   </div>
   <div v-else class="not-found">
     <h2>Could not find ticket</h2>
@@ -90,5 +182,80 @@ h1 {
 .not-found {
   padding: 2rem;
   text-align: center;
+}
+.cancelEditBtn {
+width: 5rem;
+height: 2rem;
+background: #d9534f;
+color: black;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+}
+.delete-btn {
+background: #d9534f;
+color: black;
+border: none;
+padding: 10px 16px;
+border-radius: 8px;
+cursor: pointer;
+margin: 20px;
+}
+.saveChangeBtn {
+width: 5rem;
+height: 2rem;
+background: rgb(41, 182, 41);
+color: black;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+}
+.saveChangeBtn:hover,
+.cancelEditBtn:hover,
+.edit-btn:hover,
+.delete-btn:hover {
+opacity: 0.9;
+}
+.link {
+margin-top: 20px;
+}
+.bottom {
+display: flex;
+justify-content: space-between;
+}
+.buttons {
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+}
+.edit-form {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+width: 40rem;
+padding: 1rem;
+}
+
+.edit-form input,
+.edit-form textarea,
+.edit-form select {
+width: 100%;
+padding: 0.75rem;
+box-sizing: border-box;
+}
+
+.edit-form textarea {
+height: 8rem;
+resize: none;
+}
+
+.edit-btn {
+background: #3b82f6;
+color: black;
+border: none;
+padding: 10px 16px;
+border-radius: 8px;
+cursor: pointer;
+margin: 20px;
 }
 </style>

@@ -1,14 +1,12 @@
 <script setup>
-import { supportTickets } from '../data/supportData.js'
+import { computed } from 'vue'
 
-const tickets = supportTickets.filter(ticket => ticket.priority === 'High')
-
-const formatDate = (timestamp) => {
-  return new Date(timestamp).toLocaleString('en-US', {
-    dateStyle: 'medium',
-    timeStyle: 'short'
-  })
-}
+const props = defineProps({
+  rickets: {
+    type: Array,
+    default: () => []
+  }
+})
 
 const statusClass = (status) => {
   switch (status) {
@@ -28,11 +26,15 @@ const priorityClass = (priority) => {
     default: return ''
   }
 }
+
+const highPriorityTickets = (priority) => {
+  props.tickets.filter(t => t.priority === 'High')
+}
 </script>
 
 <template>
     <div class="tickets-table">
-        <h2 class="table-title">Support tickets</h2>
+        <h2 class="table-title">High priority cases</h2>
         <table>
             <thead>
                 <tr>
@@ -44,7 +46,7 @@ const priorityClass = (priority) => {
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="ticket in tickets" :key="ticket.id">
+                <tr v-for="ticket in highPriorityTickets" :key="ticket.id">
                     <td>{{ ticket.id }}</td>
                     <td>
                         <span :class="['badge', priorityClass(ticket.priority)]">
@@ -53,7 +55,10 @@ const priorityClass = (priority) => {
                     </td>
                     <td>{{ ticket.customer }}</td>
                     <td>{{ ticket.subject }}</td>
-                    <td>{{ ticket.status }}</td>
+                    <td>
+                      <span class="['badge', statusClass(ticket.status)]">
+                        {{ ticket.status }}
+                      </span></td>
                 </tr>
             </tbody>
         </table>

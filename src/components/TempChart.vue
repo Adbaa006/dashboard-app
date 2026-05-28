@@ -3,7 +3,7 @@
       <div class="stats1">
         <div class="headline">
           <h4>Earned</h4>
-          <img src="/Users/adbaa007/project/dashboard-app/src/images/tjent.svg" alt="">
+          <img src="../images/tjent.svg" alt="">
         </div>
         <div class="number">
           <h2>739 000</h2>
@@ -12,7 +12,7 @@
       <div class="stats2">
         <div class="headline">
           <h4>Active customers</h4>
-          <img src="/Users/adbaa007/project/dashboard-app/src/images/kunder.svg" alt="">
+          <img src="..images/kunder.svg" alt="">
         </div>
         <div class="number">
           <h2>2693</h2>
@@ -21,7 +21,7 @@
       <div class="stats3">
         <div class="headline">
           <h4>Solved cases</h4>
-          <img src="/Users/adbaa007/project/dashboard-app/src/images/problemer.svg" alt="">
+          <img src="..images/problemer.svg" alt="">
         </div>
         <div class="number">
           <h2>173</h2>
@@ -30,7 +30,7 @@
       <div class="stats4">
         <div class="headline">
           <h4>Rating</h4>
-          <img src="/Users/adbaa007/project/dashboard-app/src/images/rating.svg" alt="">
+          <img src="..images/rating.svg" alt="">
         </div>
         <div class="number">
           <h2>8.5</h2>
